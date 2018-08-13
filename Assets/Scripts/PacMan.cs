@@ -5,10 +5,12 @@ using UnityEngine;
 public class PacMan : MonoBehaviour {
 
 	public float speed = 4.0f;
+	public Sprite idleSprite;
 	private Vector2 direction = Vector2.zero;
+	private Vector2 nextDirection;
 
 	// Store Pac-Man current Position 
-	private Node currentNode;
+	private Node currentNode, previousNode, targetNode;
 
 	// Use this for initialization
 	void Start () {
@@ -19,34 +21,71 @@ public class PacMan : MonoBehaviour {
 			currentNode = node;
 			Debug.Log (currentNode);
 		}
+
+		direction = Vector2.left;
+		ChangePosition (direction);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         checkInput();
-		//Move();
+		Move();
 		UpdateOrientation();
-		
+		UpdateAnimationState();
+	
 	}
 
     void checkInput () {
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-			direction = Vector2.left;
-			MoveToNode(direction);
+			ChangePosition (Vector2.left);
 		} else if ( Input.GetKeyDown (KeyCode.RightArrow)) {
-			direction = Vector2.right;
-			MoveToNode(direction);
+			ChangePosition (Vector2.right);
 		} else if ( Input.GetKeyDown (KeyCode.UpArrow)) {
-			direction = Vector2.up;
-			MoveToNode(direction);
+			ChangePosition (Vector2.up);
 		} else if ( Input.GetKeyDown (KeyCode.DownArrow)) {
-			direction = Vector2.down;
-			MoveToNode(direction);
+			ChangePosition (Vector2.down);
 		}
     }
 
+	void ChangePosition (Vector2 d) {
+		if (d != direction)
+			nextDirection = d;
+		if (currentNode != null) {
+			Node moveToNode = CanMove (d);
+			if (moveToNode != null) {
+				direction = d;
+				targetNode = moveToNode;
+				previousNode = currentNode;
+				currentNode = null;
+			}
+		}
+	}
+
 	void Move () {
-		transform.localPosition += (Vector3)(direction * speed) * Time.deltaTime;
+		// Check Boundaries where PacMan can Move 
+		if (targetNode != currentNode && targetNode != null) {
+			if (OverShotTarget ()) {
+				currentNode = targetNode;
+
+				transform.localPosition = currentNode.transform.position;
+				Node moveToNode = CanMove (nextDirection);
+				if (moveToNode != null)
+					direction = nextDirection;
+
+				if (moveToNode == null)
+					moveToNode = CanMove (direction);
+
+				if (moveToNode != null) {
+					targetNode = moveToNode;
+					previousNode = currentNode;
+					currentNode = null;
+				} else {
+					direction = Vector2.zero;
+				}
+			} else {
+				transform.localPosition += (Vector3)(direction * speed) * Time.deltaTime;
+			}
+		}
 	}
 
 	void MoveToNode (Vector2 d) {
@@ -76,6 +115,15 @@ public class PacMan : MonoBehaviour {
 		}
 	}
 
+	void UpdateAnimationState() {
+		if (direction == Vector2.zero) {
+			GetComponent<Animator> ().enabled = false;
+			GetComponent<SpriteRenderer> ().sprite = idleSprite;
+		} else {
+			GetComponent<Animator> ().enabled = true;
+		}
+	}
+
 	// Press a Button - Node checks Valid Positions
 	// If Ok, Pac-Man position is set to neighbor Node. 
 	Node CanMove (Vector2 d) {
@@ -96,5 +144,17 @@ public class PacMan : MonoBehaviour {
 			return tile.GetComponent<Node> ();
 		}
 		return null;
+	}
+	// Checks if Pacman moves away from Nodes allowed Directions.
+	bool OverShotTarget () {
+		float nodeToTarget = LengthFromNode (targetNode.transform.position);
+		float nodetoSelf = LengthFromNode (transform.localPosition);
+
+		return nodetoSelf > nodeToTarget;
+	}
+
+	float LengthFromNode (Vector2 targetPosition) {
+		Vector2 vec = targetPosition - (Vector2)previousNode.transform.position;
+		return vec.sqrMagnitude;
 	}
 }
