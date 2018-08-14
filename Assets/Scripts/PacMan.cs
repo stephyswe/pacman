@@ -32,7 +32,6 @@ public class PacMan : MonoBehaviour {
 		Move();
 		UpdateOrientation();
 		UpdateAnimationState();
-	
 	}
 
     void checkInput () {
@@ -64,10 +63,30 @@ public class PacMan : MonoBehaviour {
 	void Move () {
 		// Check Boundaries where PacMan can Move 
 		if (targetNode != currentNode && targetNode != null) {
+
+			// Move opposite way between Nodes 
+			if (nextDirection == direction * -1) {
+				direction *= -1;
+				Node tempNode = targetNode;
+				targetNode = previousNode;
+				previousNode = tempNode;
+			}
+
 			if (OverShotTarget ()) {
 				currentNode = targetNode;
 
 				transform.localPosition = currentNode.transform.position;
+
+				GameObject otherPortal = GetPortal (currentNode.transform.position);
+				// If the Object is a Portal, and has value. 
+				// Set Pacmans position to the other Portal. 
+				if (otherPortal != null) {
+					transform.localPosition = otherPortal.transform.position;
+
+					// Moves PacMan from Portal to associated Node. 
+					currentNode = otherPortal.GetComponent<Node> ();
+				}
+
 				Node moveToNode = CanMove (nextDirection);
 				if (moveToNode != null)
 					direction = nextDirection;
@@ -156,5 +175,24 @@ public class PacMan : MonoBehaviour {
 	float LengthFromNode (Vector2 targetPosition) {
 		Vector2 vec = targetPosition - (Vector2)previousNode.transform.position;
 		return vec.sqrMagnitude;
+	}
+
+	GameObject GetPortal (Vector2 pos) {
+		GameObject tile = GameObject.Find ("Game").GetComponent<GameBoard>().board[(int)pos.x, (int)pos.y];
+		if (tile != null) {
+
+			// Check if GameObject in that Position has Tile Component
+			if (tile.GetComponent<Tile> () != null) {
+				
+				// Check if it is Portal 
+				if (tile.GetComponent<Tile> ().isPortal) {
+
+					// Create GameObject. Store PortalReciever and returns Other portal.
+					GameObject otherPortal = tile.GetComponent<Tile> ().portalReceiver;
+					return otherPortal;
+				}
+			}
+		}
+		return null;
 	}
 }
