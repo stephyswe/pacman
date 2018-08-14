@@ -8801,6 +8801,29 @@ Transform:
   m_Father: {fileID: 936077320}
   m_RootOrder: 136
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &297741985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1464996859557934, guid: b7b5f0a31c74df9469764cb8c3db2138,
+    type: 2}
+  m_PrefabInternal: {fileID: 1490978839}
+--- !u!95 &297741986
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 297741985}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &301089241
 GameObject:
   m_ObjectHideFlags: 0
@@ -16859,6 +16882,26 @@ Prefab:
       propertyPath: clydeReleaseTimer
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 114789859840733054, guid: 1ec9dadb56677884899cd478eca64b61,
+        type: 2}
+      propertyPath: ghostUp
+      value: 
+      objectReference: {fileID: 9100000, guid: 4e9cd0c30828fbb4b81799e22f37b62e, type: 2}
+    - target: {fileID: 114789859840733054, guid: 1ec9dadb56677884899cd478eca64b61,
+        type: 2}
+      propertyPath: ghostDown
+      value: 
+      objectReference: {fileID: 9100000, guid: 88c4d17dfbd80644ea409169d9995720, type: 2}
+    - target: {fileID: 114789859840733054, guid: 1ec9dadb56677884899cd478eca64b61,
+        type: 2}
+      propertyPath: ghostLeft
+      value: 
+      objectReference: {fileID: 9100000, guid: c7c20289ede05be47a752ada33f1213a, type: 2}
+    - target: {fileID: 114789859840733054, guid: 1ec9dadb56677884899cd478eca64b61,
+        type: 2}
+      propertyPath: ghostRight
+      value: 
+      objectReference: {fileID: 9100000, guid: 9da12031f3f3ef641b014afdc3b23c41, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ec9dadb56677884899cd478eca64b61, type: 2}
   m_IsPrefabAsset: 0
@@ -17357,6 +17400,26 @@ Prefab:
       propertyPath: m_TagString
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 114545238383292582, guid: 95609f0a1094e7c4d8e2a3313267644e,
+        type: 2}
+      propertyPath: ghostUp
+      value: 
+      objectReference: {fileID: 9100000, guid: 137cafa94659fde488fdbd82b3529e35, type: 2}
+    - target: {fileID: 114545238383292582, guid: 95609f0a1094e7c4d8e2a3313267644e,
+        type: 2}
+      propertyPath: ghostDown
+      value: 
+      objectReference: {fileID: 9100000, guid: cca3baa1471f21946a15b9bedb409604, type: 2}
+    - target: {fileID: 114545238383292582, guid: 95609f0a1094e7c4d8e2a3313267644e,
+        type: 2}
+      propertyPath: ghostLeft
+      value: 
+      objectReference: {fileID: 9100000, guid: 99b4e495e386cae44985219273893f5a, type: 2}
+    - target: {fileID: 114545238383292582, guid: 95609f0a1094e7c4d8e2a3313267644e,
+        type: 2}
+      propertyPath: ghostRight
+      value: 
+      objectReference: {fileID: 9100000, guid: b1bd85d4db17145479a2f3d37bd5bb99, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95609f0a1094e7c4d8e2a3313267644e, type: 2}
   m_IsPrefabAsset: 0
@@ -17930,6 +17993,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4054805603444884, guid: 1eef10b537c7c4257a9308f7088fbc19,
     type: 2}
   m_PrefabInternal: {fileID: 649049161}
+--- !u!1 &650163245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1184104481390634, guid: 1ec9dadb56677884899cd478eca64b61,
+    type: 2}
+  m_PrefabInternal: {fileID: 605250368}
+--- !u!95 &650163246
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 650163245}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &650219570
 GameObject:
   m_ObjectHideFlags: 0
@@ -23489,6 +23575,29 @@ Transform:
   m_Father: {fileID: 936077320}
   m_RootOrder: 247
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &849459047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1572128334898346, guid: a78d24c1526617c4bb43aee17b8eaaa0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1058783928}
+--- !u!95 &849459048
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 849459047}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &850920367
 GameObject:
   m_ObjectHideFlags: 0
@@ -30183,6 +30292,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4054805603444884, guid: 1eef10b537c7c4257a9308f7088fbc19,
     type: 2}
   m_PrefabInternal: {fileID: 1052746299}
+--- !u!1 &1052963973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1303109104820324, guid: 95609f0a1094e7c4d8e2a3313267644e,
+    type: 2}
+  m_PrefabInternal: {fileID: 624238634}
+--- !u!95 &1052963974
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052963973}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1054273899
 GameObject:
   m_ObjectHideFlags: 0
@@ -30306,6 +30438,26 @@ Prefab:
       propertyPath: m_TagString
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 114409674698950872, guid: a78d24c1526617c4bb43aee17b8eaaa0,
+        type: 2}
+      propertyPath: ghostUp
+      value: 
+      objectReference: {fileID: 9100000, guid: 917137815332c9d448c3a8dbb7b74600, type: 2}
+    - target: {fileID: 114409674698950872, guid: a78d24c1526617c4bb43aee17b8eaaa0,
+        type: 2}
+      propertyPath: ghostDown
+      value: 
+      objectReference: {fileID: 9100000, guid: 3f95e57e0a89da448a63f846c50d1448, type: 2}
+    - target: {fileID: 114409674698950872, guid: a78d24c1526617c4bb43aee17b8eaaa0,
+        type: 2}
+      propertyPath: ghostLeft
+      value: 
+      objectReference: {fileID: 9100000, guid: 1ead5f6a7059f694ba1850830829d472, type: 2}
+    - target: {fileID: 114409674698950872, guid: a78d24c1526617c4bb43aee17b8eaaa0,
+        type: 2}
+      propertyPath: ghostRight
+      value: 
+      objectReference: {fileID: 9100000, guid: eaccf56b91cd59a46b0fe428fdba66e3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a78d24c1526617c4bb43aee17b8eaaa0, type: 2}
   m_IsPrefabAsset: 0
@@ -41263,6 +41415,26 @@ Prefab:
       propertyPath: clydeReleaseTimer
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 114451067225628824, guid: b7b5f0a31c74df9469764cb8c3db2138,
+        type: 2}
+      propertyPath: ghostUp
+      value: 
+      objectReference: {fileID: 9100000, guid: 6a69f4ffdf80b474fbed43f66ffcb9d0, type: 2}
+    - target: {fileID: 114451067225628824, guid: b7b5f0a31c74df9469764cb8c3db2138,
+        type: 2}
+      propertyPath: ghostDown
+      value: 
+      objectReference: {fileID: 9100000, guid: 461e67e6be8e79d499c5cb3cc42d21bd, type: 2}
+    - target: {fileID: 114451067225628824, guid: b7b5f0a31c74df9469764cb8c3db2138,
+        type: 2}
+      propertyPath: ghostLeft
+      value: 
+      objectReference: {fileID: 9100000, guid: 99edfb39d4b5a5845ab9dc33e4de271b, type: 2}
+    - target: {fileID: 114451067225628824, guid: b7b5f0a31c74df9469764cb8c3db2138,
+        type: 2}
+      propertyPath: ghostRight
+      value: 
+      objectReference: {fileID: 9100000, guid: 58a2ba18139198042a544ab3679a64dc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7b5f0a31c74df9469764cb8c3db2138, type: 2}
   m_IsPrefabAsset: 0

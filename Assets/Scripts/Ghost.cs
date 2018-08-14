@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour {
 
-	public float moveSpeed = 3.9f;
+	private float moveSpeed = 3.9f;
 
-	public int pinkyReleaseTimer = 5;
-	public int inkyReleaseTimer = 14;
-	public int clydeReleaseTimer = 21;
+	private int pinkyReleaseTimer = 5;
+	private int inkyReleaseTimer = 14;
+	private int clydeReleaseTimer = 21;
 
-	public float ghostReleaseTimer = 0;
+	private float ghostReleaseTimer = 0;
 
 	public bool isInGhostHouse = false;
 
@@ -19,6 +19,11 @@ public class Ghost : MonoBehaviour {
 
 	public int[] scatterModeTimer = new [] {7, 8, 9, 10};
     public int[] chaseModeTimer = new [] {20, 21, 22, 23};
+
+	public RuntimeAnimatorController ghostUp;
+	public RuntimeAnimatorController ghostDown;
+	public RuntimeAnimatorController ghostLeft;
+	public RuntimeAnimatorController ghostRight;
 
 	private int modeChangeIteration = 1;
 	private float modeChangeTimer = 0;
@@ -67,7 +72,8 @@ public class Ghost : MonoBehaviour {
 			//Debug.Log ("TARGET NODE: " + targetNode);
 		}
 
-		previousNode = currentNode;	
+		previousNode = currentNode;
+		UpdateAnimatorController ();	
 	}
 	
 	// Update is called once per frame
@@ -77,6 +83,40 @@ public class Ghost : MonoBehaviour {
 		Move ();
 		ReleaseGhosts ();
 		
+	}
+
+	/* void UpdateAnimatorController_Switch () {
+		switch (direction) {
+			case Vector2.up:
+				transform.GetComponent<Animator> ().RuntimeAnimatorController = ghostUp;
+				break;
+			case Vector2.down:
+				transform.GetComponent<Animator> ().RuntimeAnimatorController = ghostDown;
+				break;
+			case Vector2.left:
+				transform.GetComponent<Animator> ().RuntimeAnimatorController = ghostLeft;
+				break;
+			case Vector2.right:
+				transform.GetComponent<Animator> ().RuntimeAnimatorController = ghostRight;
+				break;
+			default:
+				transform.GetComponent<Animator> ().RuntimeAnimatorController = ghostLeft;
+				break;
+		}
+	} */
+
+	void UpdateAnimatorController () {
+		if (direction == Vector2.up) {
+			transform.GetComponent<Animator> ().runtimeAnimatorController = ghostUp;
+		} else if (direction == Vector2.down) {
+			transform.GetComponent<Animator> ().runtimeAnimatorController = ghostDown;
+		} else if (direction == Vector2.left) {
+			transform.GetComponent<Animator> ().runtimeAnimatorController = ghostLeft;
+		} else if (direction == Vector2.right) {
+			transform.GetComponent<Animator> ().runtimeAnimatorController = ghostRight;
+		} else {
+			transform.GetComponent<Animator> ().runtimeAnimatorController = ghostLeft;
+		}
 	}
 
 	void Move () {
@@ -95,6 +135,7 @@ public class Ghost : MonoBehaviour {
 				targetNode = ChooseNextNode();
 				previousNode = currentNode;
 				currentNode = null;
+				UpdateAnimatorController ();
 			} else {
 				//Debug.Log (direction);
 				transform.localPosition += (Vector3)direction * moveSpeed * Time.deltaTime;
