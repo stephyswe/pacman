@@ -25,8 +25,7 @@ public class GameBoard : MonoBehaviour {
 			Vector2 pos = o.transform.position;
 
 			// Checks name of the Object that was Found - Pellets = Empty.
-			if (o.name != "PacMan" && o.name != "Nodes" && o.name != "NonNodes" 
-									&& o.name != "Maze" && o.name != "Pellets" && o.name != "bottom_left_corner_single" && o.name != "Ghost") {
+			if (o.name != "PacMan" && o.name != "Nodes" && o.name != "NonNodes" && o.name != "Maze" && o.name != "Pellets" && o.name != "bottom_left_corner_single" && o.name != "Ghost" && o.tag != "ghostHome") {
 				
 				// If Object is a Tile Component [ Pellet, Node or Portal ]
 				if (o.GetComponent<Tile> () != null ) {
@@ -40,7 +39,7 @@ public class GameBoard : MonoBehaviour {
 				// Adding Object to Board array at pos x and y where it occurs			
 				board [(int)pos.x, (int)pos.y] = o;
 			} else {
-				Debug.Log ("Found PacMan at: " +pos);
+				//Debug.Log ("Found PacMan at: " +pos);
 			}
 		}
 		
