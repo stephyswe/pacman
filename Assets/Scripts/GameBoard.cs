@@ -26,7 +26,7 @@ public class GameBoard : MonoBehaviour {
 
 			// Checks name of the Object that was Found - Pellets = Empty.
 			if (o.name != "PacMan" && o.name != "Nodes" && o.name != "NonNodes" 
-									&& o.name != "Maze" && o.name != "Pellets" && o.name != "bottom_left_corner_single") {
+									&& o.name != "Maze" && o.name != "Pellets" && o.name != "bottom_left_corner_single" && o.name != "Ghost") {
 				
 				// If Object is a Tile Component [ Pellet, Node or Portal ]
 				if (o.GetComponent<Tile> () != null ) {

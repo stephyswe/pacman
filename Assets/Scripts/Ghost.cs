@@ -6,16 +6,21 @@ public class Ghost : MonoBehaviour {
 
 	public float moveSpeed = 3.9f;
 
+	public int pinkyReleaseTimer = 5;
+	public float ghostReleaseTimer = 0;
+
+	public bool isInGhostHouse = false;
+
 	public Node startingPosition;
 
-	public int scatterModeTimer1 = 7;
+	/* public int scatterModeTimer1 = 7;
 	public int chaseModeTimer1 = 20;
 	public int scatterModeTimer2 = 7;
 	public int chaseModeTimer2 = 20;
 	public int scatterModeTimer3 = 7;
 	public int chaseModeTimer3 = 20;
 	public int scatterModeTimer4 = 7;
-	public int chaseModeTimer4 = 20;
+	public int chaseModeTimer4 = 20; */
 
 	public int[] scatterModeTimer = new [] {7, 8, 9, 10};
     public int[] chaseModeTimer = new [] {20, 21, 22, 23};
@@ -33,6 +38,16 @@ public class Ghost : MonoBehaviour {
 
 	Mode currentMode = Mode.Scatter;
 	Mode previousMode;
+
+	public enum GhostType {
+		Red,
+		Pink,
+		Blue,
+		Orange
+	}
+
+	public GhostType ghostType = GhostType.Red;
+
 	private GameObject pacMan;
 
 	// Location & DIrection Markers
@@ -48,15 +63,17 @@ public class Ghost : MonoBehaviour {
 			currentNode = node;
 		}
 
-		direction = Vector2.right;
+		// If Ghosts are in the House
+		if (isInGhostHouse) {
+			direction = Vector2.up;
+			targetNode = currentNode.neighbors [0];
+
+		} else {
+			direction = Vector2.left;
+			targetNode = ChooseNextNode ();
+		}
 
 		previousNode = currentNode;
-
-		Vector2 pacmanPosition = pacMan.transform.position;
-		Vector2 targetTile = new Vector2 (Mathf.RoundToInt (pacmanPosition.x), Mathf.RoundToInt (pacmanPosition.y));
-		targetNode = GetNodeAtPosition (targetTile);
-
-		Debug.Log (targetNode);
 		
 	}
 	
@@ -65,13 +82,14 @@ public class Ghost : MonoBehaviour {
 
 		ModeUpdate2 ();
 		Move ();
+		ReleaseGhosts ();
 		
 	}
 
 	void Move () {
 
-		// If Ghost's Target is a Node
-		if (targetNode != currentNode && targetNode != null) {
+		// If Ghost's Target is a Node and isn't in House
+		if (targetNode != currentNode && targetNode != null && !isInGhostHouse) {
 			if (OverShotTarget ()) {
 				currentNode = targetNode;
 				transform.localPosition = currentNode.transform.position;
@@ -117,7 +135,7 @@ public class Ghost : MonoBehaviour {
     }
 
 	// OLD - If statements
-	void ModeUpdate () {
+	/* void ModeUpdate () {
 
 		// If Ghost isn't Frightened
 		if (currentMode != Mode.Frightened) {
@@ -171,17 +189,63 @@ public class Ghost : MonoBehaviour {
 		} else if (currentMode == Mode.Frightened) {
 
 		}
-	}
+	} */
 	
 	void ChangeMode (Mode m) {
 		currentMode = m;
 	}
 
+	Vector2 GetRedGhostTargetTile () {
+		Vector2 pacManPosition = pacMan.transform.localPosition;
+		Vector2 targetTile = new Vector2 (Mathf.RoundToInt (pacManPosition.x), Mathf.RoundToInt (pacManPosition.y));
+
+		return targetTile;
+	}
+
+	Vector2 GetPinkGhostTargetTile () {
+
+		//- Four tiles ahead of Pac-Man
+		// Taking account Position and Orientation
+		Vector2 pacManPosition = pacMan.transform.localPosition;
+		Vector2 pacManOrientation = pacMan.GetComponent<PacMan> ().orientation;
+
+		int pacManPositionX = Mathf.RoundToInt (pacManPosition.x);
+		int pacManPositionY = Mathf.RoundToInt (pacManPosition.y);
+
+		Vector2 pacManTile = new Vector2 (pacManPositionX, pacManPositionY);
+		Vector2 targetTile = pacManTile + (4 * pacManOrientation);
+
+		return targetTile;
+
+	}
+
+	Vector2 GetTargetTile () {
+		Vector2 targetTile = Vector2.zero;
+		if (ghostType == GhostType.Red) {
+			targetTile = GetRedGhostTargetTile ();
+		} else if (ghostType == GhostType.Pink) {
+			targetTile = GetPinkGhostTargetTile ();
+		}
+
+		return targetTile;
+	}
+
+	void ReleasePinkGhost() {
+		if (ghostType == GhostType.Pink && isInGhostHouse) {
+			isInGhostHouse = false;
+		}
+	}
+
+	void ReleaseGhosts() {
+		ghostReleaseTimer += Time.deltaTime;
+		if (ghostReleaseTimer > pinkyReleaseTimer)
+			ReleasePinkGhost ();
+	}
+
 	Node ChooseNextNode () {
 		Vector2 targetTile = Vector2.zero;
 
-		Vector2 pacmanPosition = pacMan.transform.position;
-		targetTile = new Vector2 (Mathf.RoundToInt (pacmanPosition.x), Mathf.RoundToInt (pacmanPosition.y));
+		targetTile = GetTargetTile ();
 
 		Node moveToNode = null;
 
