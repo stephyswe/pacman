@@ -9,6 +9,8 @@ public class PacMan : MonoBehaviour {
 	private Vector2 direction = Vector2.zero;
 	private Vector2 nextDirection;
 
+	private int pelletsConsumed = 0;
+
 	// Store Pac-Man current Position 
 	private Node currentNode, previousNode, targetNode;
 
@@ -28,11 +30,15 @@ public class PacMan : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		Debug.Log ("SCORE: " + GameObject.Find("Game").GetComponent<GameBoard> ().score);
+
         checkInput ();
 		Move ();
 		UpdateOrientation ();
 		UpdateAnimationState ();
 		ConsumePellet ();
+
 	}
 
     void checkInput () {
@@ -153,11 +159,16 @@ public class PacMan : MonoBehaviour {
 
 			// If GameObject(pellet) on Tile exists
 			if (tile != null) {
+
 				// And Superpellet / Pellet hasn't been consumed
 				// Remove pellet sprite and set consumed to true.
+				// Increment Score and pelletsConsumed by 1. 
 				if (!tile.didConsume && (tile.isPellet || tile.isSupperPellet)) {
 					o.GetComponent<SpriteRenderer> ().enabled = false;
 					tile.didConsume = true;
+
+					GameObject.Find ("Game").GetComponent<GameBoard> ().score += 1;
+					pelletsConsumed++;
 				}
 			} else { 
 				Debug.Log(o.name); 
