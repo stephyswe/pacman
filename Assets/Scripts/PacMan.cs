@@ -28,10 +28,11 @@ public class PacMan : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        checkInput();
-		Move();
-		UpdateOrientation();
-		UpdateAnimationState();
+        checkInput ();
+		Move ();
+		UpdateOrientation ();
+		UpdateAnimationState ();
+		ConsumePellet ();
 	}
 
     void checkInput () {
@@ -143,6 +144,27 @@ public class PacMan : MonoBehaviour {
 		}
 	}
 
+	void ConsumePellet () {
+		GameObject o = GetTileAtPosition (transform.position);
+
+		// Position is tile or pellet
+		if (o != null) {
+			Tile tile = o.GetComponent<Tile> ();
+
+			// If GameObject(pellet) on Tile exists
+			if (tile != null) {
+				// And Superpellet / Pellet hasn't been consumed
+				// Remove pellet sprite and set consumed to true.
+				if (!tile.didConsume && (tile.isPellet || tile.isSupperPellet)) {
+					o.GetComponent<SpriteRenderer> ().enabled = false;
+					tile.didConsume = true;
+				}
+			} else { 
+				Debug.Log(o.name); 
+			}
+		}
+	}
+
 	// Press a Button - Node checks Valid Positions
 	// If Ok, Pac-Man position is set to neighbor Node. 
 	Node CanMove (Vector2 d) {
@@ -155,6 +177,18 @@ public class PacMan : MonoBehaviour {
 			}
 		}
 		return moveToNode;
+	}
+
+	// Get Tile of PacMan current Position
+	GameObject GetTileAtPosition (Vector2 pos) {
+		int tileX = Mathf.RoundToInt (pos.x);
+		int tileY = Mathf.RoundToInt (pos.y);
+
+		GameObject tile = GameObject.Find ("Game").GetComponent<GameBoard> ().board [tileX, tileY];
+		if (tile != null) {
+			return tile;
+		}
+		return null;
 	}
 
 	Node GetNodeAtPosition (Vector2 pos) {
