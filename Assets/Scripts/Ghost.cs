@@ -5,7 +5,9 @@ using UnityEngine;
 public class Ghost : MonoBehaviour {
 
 	public float moveSpeed = 5.9f;
+	public float normalMoveSpeed = 5.9f;
 	public float frightenedSpeed = 2.9f;
+	public float consumedMoveSpeed = 15f;
 	private float previousSpeed;
 
 	private int pinkyReleaseTimer = 5;
@@ -21,9 +23,15 @@ public class Ghost : MonoBehaviour {
 
 	public Node startingPosition;
 	public Node homeNode;
+	public Node ghostHouse;
 
 	public int[] scatterModeTimer = new [] {7, 8, 9, 10};
 	public int[] chaseModeTimer = new [] {20, 21, 22, 23};
+
+	public Sprite eyesUp;
+	public Sprite eyesDown;
+	public Sprite eyesLeft;
+	public Sprite eyesRight;
 
 	public RuntimeAnimatorController ghostUp;
 	public RuntimeAnimatorController ghostDown;
@@ -41,12 +49,15 @@ public class Ghost : MonoBehaviour {
 	private float blinkTimer = 0;
 
 	private bool frightenedModeIsWhite = false;
+
+	private AudioSource bgAudio;
 	
 
 	public enum Mode {
 		Chase,
 		Scatter,
-		Frightened
+		Frightened,
+		Consumed
 	}
 
 	Mode currentMode = Mode.Scatter;
@@ -69,6 +80,8 @@ public class Ghost : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		bgAudio = GameObject.Find("Game").transform.GetComponent<AudioSource> ();
 
 		pacMan = GameObject.FindGameObjectWithTag("PacMan");
 		Node node = GetNodeAtPosition (transform.localPosition);
@@ -97,31 +110,65 @@ public class Ghost : MonoBehaviour {
 		ModeUpdate2 ();
 		Move ();
 		ReleaseGhosts ();
+		CheckCollision ();
+		CheckIsInGhostHouse ();
 		
 	}
 
-	/* void UpdateAnimatorControllerSwitch () {
-		switch (direction) {
-			case Vector2.up:
-				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostUp;
-				break;
-			case Vector2.down:
-				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostDown;
-				break;
-			case Vector2.left:
-				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostLeft;
-				break;
-			case Vector2.right:
-				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostRight;
-				break;
-			default:
-				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostLeft;
-				break;
+	void CheckIsInGhostHouse () {
+		if (currentMode == Mode.Consumed) {
+			GameObject tile = GetTileAtPosition (transform.position);
+
+			if (tile != null) {
+				if (tile.transform.GetComponent<Tile> () != null) {
+					if (tile.transform.GetComponent<Tile> ().isGhostHouse) {
+						moveSpeed = normalMoveSpeed;
+						Node node = GetNodeAtPosition (transform.position);
+						if (node != null) {
+							currentNode = node;
+							direction = Vector2.up;
+							targetNode = currentNode.neighbors [0];
+
+							previousNode = currentNode;
+							currentMode = Mode.Chase;
+							UpdateAnimatorController ();
+						}
+					}
+				}
+			}
 		}
-	} */
+	}
+
+
+
+	void CheckCollision () {
+
+		// Collision is set to middle of PacMan and Ghosts
+		Rect ghostRect = new Rect (transform.position, transform.GetComponent<SpriteRenderer> ().sprite.bounds.size / 4);
+		Rect pacManRect = new Rect (pacMan.transform.position, pacMan.transform.GetComponent<SpriteRenderer> ().sprite.bounds.size / 4);
+
+		// When Ghosts and PacMan collide
+		if (ghostRect.Overlaps (pacManRect)) {
+
+			if (currentMode == Mode.Frightened) {
+				//Debug.Log ("COLLIDED!");
+				Consumed ();
+			} else {
+				//- Pac-Man should die
+
+			}
+		}
+	}
+
+	void Consumed () {
+		currentMode = Mode.Consumed;
+		previousSpeed = moveSpeed;
+		moveSpeed = consumedMoveSpeed;
+		UpdateAnimatorController ();
+	}
 
 	void UpdateAnimatorController () {
-		if (currentMode != Mode.Frightened) {
+		if (currentMode != Mode.Frightened && currentMode != Mode.Consumed) {
 			if (direction == Vector2.up) {
 				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostUp;
 			} else if (direction == Vector2.down) {
@@ -133,9 +180,22 @@ public class Ghost : MonoBehaviour {
 			} else {
 				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostLeft;
 			}
-		} else {
+		} else if (currentMode == Mode.Frightened) {
 			transform.GetComponent<Animator> ().runtimeAnimatorController = ghostFrightened;
-		}
+
+		} else if (currentMode == Mode.Consumed) {
+			transform.GetComponent<Animator> ().runtimeAnimatorController = null;
+
+			if (direction == Vector2.up) {
+				transform.GetComponent<SpriteRenderer> ().sprite = eyesUp;
+			} else if (direction == Vector2.down) {
+				transform.GetComponent<SpriteRenderer> ().sprite = eyesDown;
+			} else if (direction == Vector2.left) {
+				transform.GetComponent<SpriteRenderer> ().sprite = eyesLeft;
+			} else if (direction == Vector2.right) {
+				transform.GetComponent<SpriteRenderer> ().sprite = eyesRight;
+			}
+		} 
 	}
 
 	void Move () {
@@ -192,6 +252,10 @@ public class Ghost : MonoBehaviour {
 
 			// When Frightened Mode is over, change back to normal mode. 
 			if (frightenedModeTimer >= frightenedModeDuration) {
+
+				bgAudio.clip = GameObject.Find("Game").transform.GetComponent<GameBoard> ().bgAudioNormal;
+				bgAudio.Play ();
+				
 				frightenedModeTimer = 0;
 				ChangeMode(previousMode);
 
@@ -282,19 +346,28 @@ public class Ghost : MonoBehaviour {
 			moveSpeed = previousSpeed;
 		}
 
+		// Store normal speed in temp variable (previousSpeed)
 		if ( m == Mode.Frightened) {
 			previousSpeed = moveSpeed;
 			moveSpeed = frightenedSpeed;
 		}
+
 		// Save Mode in temporary varible. And replace Mode with m.
-		previousMode = currentMode;
-		currentMode = m;
+		if (currentMode != m) {	
+			previousMode = currentMode;
+			currentMode = m;
+		}
 
 		UpdateAnimatorController ();
 	}
 
 	public void StartFrightenedMode() {
-		ChangeMode (Mode.Frightened);
+		if (currentMode != Mode.Consumed) {
+			frightenedModeTimer = 0;
+			bgAudio.clip = GameObject.Find("Game").transform.GetComponent<GameBoard> ().bgAudioFrightened;
+			bgAudio.Play ();
+			ChangeMode (Mode.Frightened);
+		}
 	}
 
 	Vector2 GetRedGhostTargetTile () {
@@ -390,6 +463,13 @@ public class Ghost : MonoBehaviour {
 		return targetTile;
 	}
 
+	Vector2 GetRandomTile () {
+		int x = Random.Range (0,28);
+		int y = Random.Range (0,36);
+
+		return new Vector2 (x, y);
+	}
+
 	void ReleasePinkGhost() {
 		if (ghostType == GhostType.Pink && isInGhostHouse) {
 			isInGhostHouse = false;
@@ -429,6 +509,10 @@ public class Ghost : MonoBehaviour {
 			targetTile = GetTargetTile ();
 		} else if (currentMode == Mode.Scatter) {
 			targetTile = homeNode.transform.position;
+		} else if (currentMode == Mode.Frightened) {
+			targetTile = GetRandomTile ();
+		} else if (currentMode == Mode.Consumed) {
+			targetTile = ghostHouse.transform.position;
 		}
 
 		Node moveToNode = null;
@@ -438,12 +522,36 @@ public class Ghost : MonoBehaviour {
 
 		int nodeCounter = 0;
 
+		// Iterate the neighbors of Current Node
 		for (int i = 0; i < currentNode.neighbors.Length; i++)
 		{
+			// Ghosts cannot move in Reverse direction
 			if (currentNode.validDirections [i] != direction * -1) {
-				foundNodes [nodeCounter] = currentNode.neighbors [i];
-				foundNodesDirection [nodeCounter] = currentNode.validDirections [i];
-				nodeCounter++;
+
+				if (currentMode != Mode.Consumed) {
+					// Get a tile for our current Position
+					GameObject tile = GetTileAtPosition (currentNode.transform.position);
+					if (tile.transform.GetComponent<Tile> ().isGhostHouseEntrance == true) {
+						//- Found a ghost house, don't want to allow movement
+
+						if (currentNode.validDirections[i] != Vector2.down) {
+							//Add Node to Found Node Arrays 
+							foundNodes [nodeCounter] = currentNode.neighbors [i];
+							foundNodesDirection [nodeCounter] = currentNode.validDirections [i];
+							nodeCounter++;
+						}
+					} else {
+						//Add Node to Found Node Arrays 
+						foundNodes [nodeCounter] = currentNode.neighbors [i];
+						foundNodesDirection [nodeCounter] = currentNode.validDirections [i];
+						nodeCounter++;
+					}
+				} else {
+					//Add Node to Found Node Arrays 
+					foundNodes [nodeCounter] = currentNode.neighbors [i];
+					foundNodesDirection [nodeCounter] = currentNode.validDirections [i];
+					nodeCounter++;
+				}
 			}
 		}
 
@@ -485,6 +593,17 @@ public class Ghost : MonoBehaviour {
 			}
 		}
 
+		return null;
+	}
+
+	GameObject GetTileAtPosition (Vector2 pos) {
+		int tileX = Mathf.RoundToInt (pos.x);
+		int tileY = Mathf.RoundToInt (pos.y);
+
+		GameObject tile = GameObject.Find("Game").transform.GetComponent<GameBoard> ().board [tileX, tileY];
+		if (tile != null) {
+			return tile;
+		}
 		return null;
 	}
 
