@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour {
 
-	private float moveSpeed = 3.9f;
+	public float moveSpeed = 5.9f;
 
 	private int pinkyReleaseTimer = 5;
 	private int inkyReleaseTimer = 14;
@@ -18,14 +18,16 @@ public class Ghost : MonoBehaviour {
 	public Node homeNode;
 
 	public int[] scatterModeTimer = new [] {7, 8, 9, 10};
-    public int[] chaseModeTimer = new [] {20, 21, 22, 23};
+	public int[] chaseModeTimer = new [] {20, 21, 22, 23};
 
 	public RuntimeAnimatorController ghostUp;
 	public RuntimeAnimatorController ghostDown;
 	public RuntimeAnimatorController ghostLeft;
 	public RuntimeAnimatorController ghostRight;
 
-	private int modeChangeIteration = 1;
+	//public RuntimeAnimatorController[] ghostDirection = new [] {up,down,left, right};
+
+	private int modeChangeIteration = 0;
 	private float modeChangeTimer = 0;
 
 	public enum Mode {
@@ -85,22 +87,22 @@ public class Ghost : MonoBehaviour {
 		
 	}
 
-	/* void UpdateAnimatorController_Switch () {
+	/* void UpdateAnimatorControllerSwitch () {
 		switch (direction) {
 			case Vector2.up:
-				transform.GetComponent<Animator> ().RuntimeAnimatorController = ghostUp;
+				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostUp;
 				break;
 			case Vector2.down:
-				transform.GetComponent<Animator> ().RuntimeAnimatorController = ghostDown;
+				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostDown;
 				break;
 			case Vector2.left:
-				transform.GetComponent<Animator> ().RuntimeAnimatorController = ghostLeft;
+				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostLeft;
 				break;
 			case Vector2.right:
-				transform.GetComponent<Animator> ().RuntimeAnimatorController = ghostRight;
+				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostRight;
 				break;
 			default:
-				transform.GetComponent<Animator> ().RuntimeAnimatorController = ghostLeft;
+				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostLeft;
 				break;
 		}
 	} */
@@ -145,28 +147,28 @@ public class Ghost : MonoBehaviour {
 
 	// New - Switch statement
 	void ModeUpdate2 () {
-        if (currentMode != Mode.Frightened) {
-            modeChangeTimer += Time.deltaTime;
-        }
-        switch (currentMode) {
-            case Mode.Frightened:
-                break;
+		if (currentMode != Mode.Frightened) {
+			modeChangeTimer += Time.deltaTime;
+		}
+		switch (currentMode) {
+			case Mode.Frightened:
+				break;
  
-            case Mode.Scatter:
-                if (modeChangeTimer > scatterModeTimer[modeChangeIteration]) {
-                    ChangeMode (Mode.Chase);
-                    modeChangeTimer = 0;
-                }
-                break;
-            case Mode.Chase:
-                if(modeChangeTimer > chaseModeTimer[modeChangeIteration]) {
-                    modeChangeIteration = (modeChangeIteration + 1)%4; // so if it is 3 to go to 0 for next one
-                    ChangeMode (Mode.Scatter);
-                    modeChangeTimer = 0;
-                }
-                break;
-        }
-    }
+			case Mode.Scatter:
+				if (modeChangeTimer > scatterModeTimer[modeChangeIteration]) {
+					ChangeMode (Mode.Chase);
+					modeChangeTimer = 0;
+				}
+				break;
+			case Mode.Chase:
+				if(modeChangeTimer > chaseModeTimer[modeChangeIteration]) {
+					modeChangeIteration = (modeChangeIteration + 1)%4; // so if it is 3 to go to 0 for next one
+					ChangeMode (Mode.Scatter);
+					modeChangeTimer = 0;
+				}
+				break;
+		}
+	}
 
 	// OLD - If statements
 	/* void ModeUpdate () {
@@ -267,7 +269,7 @@ public class Ghost : MonoBehaviour {
 		Vector2 targetTile = pacManTile + (2* pacManOrientation);
 
 		//-Temporary Blinky Position
-		Vector2 tempBlinkyPosition = GameObject.Find ("Ghost").transform.localPosition;
+		Vector2 tempBlinkyPosition = GameObject.Find ("Ghost_Blinky").transform.localPosition;
 
 		int blinkyPositionX = Mathf.RoundToInt (tempBlinkyPosition.x);
 		int blinkyPositionY = Mathf.RoundToInt (tempBlinkyPosition.y);

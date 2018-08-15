@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class PacMan : MonoBehaviour {
 
-	public Vector2 orientation;
+	public AudioClip chomp1;
+	public AudioClip chomp2;
 
-	public float speed = 4.0f;
+	public Vector2 orientation;
+	public float speed = 6.0f;
 	public Sprite idleSprite;
+
+	private bool playedChomp1 = false;
+	private AudioSource audio;
+
+
 	private Vector2 direction = Vector2.zero;
 	private Vector2 nextDirection;
 
@@ -18,6 +25,9 @@ public class PacMan : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		audio = transform.GetComponent<AudioSource> ();
+
 		Node node = GetNodeAtPosition (transform.localPosition);
 
 		// Find which Pellet PacMan is at 
@@ -42,6 +52,19 @@ public class PacMan : MonoBehaviour {
 		UpdateAnimationState ();
 		ConsumePellet ();
 
+
+	}
+
+	void PlayChompSound () {
+		if (playedChomp1) {
+			//- Play chomp 2, set playedChomp1 to false;
+			audio.PlayOneShot (chomp2);
+			playedChomp1 = false;
+		} else {
+			//- Play chomp 1, set playedChomp1 to true;
+			audio.PlayOneShot (chomp1);
+			playedChomp1 = true;
+		}
 	}
 
     void checkInput () {
@@ -176,6 +199,7 @@ public class PacMan : MonoBehaviour {
 
 					GameObject.Find ("Game").GetComponent<GameBoard> ().score += 1;
 					pelletsConsumed++;
+					PlayChompSound ();
 				}
 			} else { 
 				Debug.Log(o.name); 
