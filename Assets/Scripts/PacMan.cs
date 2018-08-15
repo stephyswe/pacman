@@ -7,9 +7,14 @@ public class PacMan : MonoBehaviour {
 	public AudioClip chomp1;
 	public AudioClip chomp2;
 
+	public RuntimeAnimatorController chompAnimation;
+	public RuntimeAnimatorController deathAnimation;
+
 	public Vector2 orientation;
 	public float speed = 6.0f;
 	public Sprite idleSprite;
+
+	public bool canMove = true;
 
 	private bool playedChomp1 = false;
 	private AudioSource audio;
@@ -46,6 +51,12 @@ public class PacMan : MonoBehaviour {
 
 	// Reset Pac-Mans position
 	public void Restart () {
+
+		canMove = true;
+		transform.GetComponent<Animator> ().runtimeAnimatorController = chompAnimation;
+		transform.GetComponent<Animator> ().enabled = true;
+
+		transform.GetComponent<SpriteRenderer> ().enabled = true;
 		transform.position = startingPosition.transform.position;
 
 		currentNode = startingPosition;
@@ -60,15 +71,13 @@ public class PacMan : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//Debug.Log ("SCORE: " + GameObject.Find("Game").GetComponent<GameBoard> ().score);
-
-        checkInput ();
-		Move ();
-		UpdateOrientation ();
-		UpdateAnimationState ();
-		ConsumePellet ();
-
-
+		if (canMove) {
+			checkInput ();
+			Move ();
+			UpdateOrientation ();
+			UpdateAnimationState ();
+			ConsumePellet ();
+		}
 	}
 
 	void PlayChompSound () {

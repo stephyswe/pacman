@@ -399,6 +399,12 @@ Prefab:
       propertyPath: m_TagString
       value: PacMan
       objectReference: {fileID: 0}
+    - target: {fileID: 212177234727688632, guid: b08ac3ad30ff0499aa4a5042fe2f12da,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 163db8eaeb6a39b488a375fb5a54e9be,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b08ac3ad30ff0499aa4a5042fe2f12da, type: 2}
   m_IsPrefabAsset: 0
@@ -1330,8 +1336,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalPellets: 0
   score: 0
+  pacManLives: 3
   bgAudioNormal: {fileID: 8300000, guid: d44ca84a8db9ea14a9b13e7b6bf41147, type: 3}
   bgAudioFrightened: {fileID: 8300000, guid: 4df503727c9b7fb4798213081e5eaca4, type: 3}
+  bgAudioPacManDeath: {fileID: 8300000, guid: 16e85bfee95532e49b669dc4d123bd7c, type: 3}
 --- !u!4 &39421715
 Transform:
   m_ObjectHideFlags: 0
@@ -43025,7 +43033,7 @@ Animator:
   m_GameObject: {fileID: 1535676380}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 19e9f3b638558bb4d81361e6a96be479, type: 2}
+  m_Controller: {fileID: 9100000, guid: fb5166e8cd9ed274485365f734db67b2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -43047,9 +43055,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chomp1: {fileID: 8300000, guid: 9fe105114fe765648b0cae3c241e13a9, type: 3}
   chomp2: {fileID: 8300000, guid: 0a2a87d7d803cb047ae3844d84a120b4, type: 3}
+  chompAnimation: {fileID: 9100000, guid: fb5166e8cd9ed274485365f734db67b2, type: 2}
+  deathAnimation: {fileID: 9100000, guid: 707d6fcc60df7884a9aa20f854c57161, type: 2}
   orientation: {x: 0, y: 0}
   speed: 6
-  idleSprite: {fileID: 21300000, guid: d2dd0d20fb7ebbb4983a6fe75c31b8eb, type: 3}
+  idleSprite: {fileID: 21300000, guid: 83f372fa7e759ab42ad02118fd5596a2, type: 3}
+  canMove: 1
 --- !u!82 &1535676385
 AudioSource:
   m_ObjectHideFlags: 0

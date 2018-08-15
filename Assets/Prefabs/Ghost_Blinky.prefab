@@ -72,15 +72,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5.9
+  normalMoveSpeed: 5.9
+  frightenedSpeed: 2.9
+  consumedMoveSpeed: 15
+  canMove: 1
+  frightenedModeDuration: 10
+  startBlinkingAt: 7
   isInGhostHouse: 0
   startingPosition: {fileID: 0}
   homeNode: {fileID: 0}
+  ghostHouse: {fileID: 0}
   scatterModeTimer: 0700000008000000090000000a000000
   chaseModeTimer: 14000000150000001600000017000000
+  eyesUp: {fileID: 0}
+  eyesDown: {fileID: 0}
+  eyesLeft: {fileID: 0}
+  eyesRight: {fileID: 0}
   ghostUp: {fileID: 9100000, guid: 6a69f4ffdf80b474fbed43f66ffcb9d0, type: 2}
   ghostDown: {fileID: 9100000, guid: 461e67e6be8e79d499c5cb3cc42d21bd, type: 2}
   ghostLeft: {fileID: 9100000, guid: 99edfb39d4b5a5845ab9dc33e4de271b, type: 2}
   ghostRight: {fileID: 9100000, guid: 58a2ba18139198042a544ab3679a64dc, type: 2}
+  ghostWhite: {fileID: 0}
+  ghostFrightened: {fileID: 0}
   ghostType: 0
 --- !u!212 &212774294981635900
 SpriteRenderer:
@@ -117,7 +130,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 93a03156f8df2ac45b65369db95a85cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: db3db546b34b7164fa00c0ce61aba1db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
