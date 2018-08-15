@@ -33,7 +33,6 @@ public class PacMan : MonoBehaviour {
 		// Find which Pellet PacMan is at 
 		if (node != null) {
 			currentNode = node;
-			Debug.Log (currentNode);
 		}
 
 		direction = Vector2.left;
@@ -200,10 +199,16 @@ public class PacMan : MonoBehaviour {
 					GameObject.Find ("Game").GetComponent<GameBoard> ().score += 1;
 					pelletsConsumed++;
 					PlayChompSound ();
+
+					if (tile.isSupperPellet) {
+						GameObject[] ghosts = GameObject.FindGameObjectsWithTag ("Ghost");
+						foreach (GameObject go in ghosts)
+						{
+							go.GetComponent<Ghost> ().StartFrightenedMode ();
+						}
+					}
 				}
-			} else { 
-				Debug.Log(o.name); 
-			}
+			} 
 		}
 	}
 

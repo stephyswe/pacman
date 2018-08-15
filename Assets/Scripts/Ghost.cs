@@ -5,10 +5,15 @@ using UnityEngine;
 public class Ghost : MonoBehaviour {
 
 	public float moveSpeed = 5.9f;
+	public float frightenedSpeed = 2.9f;
+	private float previousSpeed;
 
 	private int pinkyReleaseTimer = 5;
 	private int inkyReleaseTimer = 14;
 	private int clydeReleaseTimer = 21;
+
+	public int frightenedModeDuration = 10;
+	public int startBlinkingAt = 7;
 
 	private float ghostReleaseTimer = 0;
 
@@ -25,10 +30,18 @@ public class Ghost : MonoBehaviour {
 	public RuntimeAnimatorController ghostLeft;
 	public RuntimeAnimatorController ghostRight;
 
+	public RuntimeAnimatorController ghostWhite;
+	public RuntimeAnimatorController ghostFrightened;
+
 	//public RuntimeAnimatorController[] ghostDirection = new [] {up,down,left, right};
 
 	private int modeChangeIteration = 0;
 	private float modeChangeTimer = 0;
+	private float frightenedModeTimer = 0;
+	private float blinkTimer = 0;
+
+	private bool frightenedModeIsWhite = false;
+	
 
 	public enum Mode {
 		Chase,
@@ -108,16 +121,20 @@ public class Ghost : MonoBehaviour {
 	} */
 
 	void UpdateAnimatorController () {
-		if (direction == Vector2.up) {
-			transform.GetComponent<Animator> ().runtimeAnimatorController = ghostUp;
-		} else if (direction == Vector2.down) {
-			transform.GetComponent<Animator> ().runtimeAnimatorController = ghostDown;
-		} else if (direction == Vector2.left) {
-			transform.GetComponent<Animator> ().runtimeAnimatorController = ghostLeft;
-		} else if (direction == Vector2.right) {
-			transform.GetComponent<Animator> ().runtimeAnimatorController = ghostRight;
+		if (currentMode != Mode.Frightened) {
+			if (direction == Vector2.up) {
+				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostUp;
+			} else if (direction == Vector2.down) {
+				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostDown;
+			} else if (direction == Vector2.left) {
+				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostLeft;
+			} else if (direction == Vector2.right) {
+				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostRight;
+			} else {
+				transform.GetComponent<Animator> ().runtimeAnimatorController = ghostLeft;
+			}
 		} else {
-			transform.GetComponent<Animator> ().runtimeAnimatorController = ghostLeft;
+			transform.GetComponent<Animator> ().runtimeAnimatorController = ghostFrightened;
 		}
 	}
 
@@ -168,6 +185,36 @@ public class Ghost : MonoBehaviour {
 				}
 				break;
 		}
+
+		// If PacMan eat a Super Pellet, count down frightened Mode Timer. 
+		if (currentMode == Mode.Frightened) {
+			frightenedModeTimer += Time.deltaTime;
+
+			// When Frightened Mode is over, change back to normal mode. 
+			if (frightenedModeTimer >= frightenedModeDuration) {
+				frightenedModeTimer = 0;
+				ChangeMode(previousMode);
+
+			}
+
+			// If 7 seconds has elapsed, Start Blinking Animation
+			if (frightenedModeTimer >= startBlinkingAt) {
+				blinkTimer += Time.deltaTime;
+				if (blinkTimer >= 0.1f) {
+					blinkTimer = 0f;
+
+					// Switch between White and Blue animation for Scared Ghosts.
+					if (frightenedModeIsWhite) {
+						transform.GetComponent<Animator> ().runtimeAnimatorController = ghostFrightened;
+						frightenedModeIsWhite = false;
+					} else {
+						transform.GetComponent<Animator> ().runtimeAnimatorController = ghostWhite;
+						frightenedModeIsWhite = true;
+					}
+				}
+			}
+
+		} 
 	}
 
 	// OLD - If statements
@@ -228,7 +275,26 @@ public class Ghost : MonoBehaviour {
 	} */
 	
 	void ChangeMode (Mode m) {
+
+		// If CurrentMode is Frightened save Ghost Speed to temp varible.
+		// In Frightened Mode - Change Ghosts MoveSpeed and replace with Frightened Speed. 
+		if (currentMode == Mode.Frightened) {
+			moveSpeed = previousSpeed;
+		}
+
+		if ( m == Mode.Frightened) {
+			previousSpeed = moveSpeed;
+			moveSpeed = frightenedSpeed;
+		}
+		// Save Mode in temporary varible. And replace Mode with m.
+		previousMode = currentMode;
 		currentMode = m;
+
+		UpdateAnimatorController ();
+	}
+
+	public void StartFrightenedMode() {
+		ChangeMode (Mode.Frightened);
 	}
 
 	Vector2 GetRedGhostTargetTile () {
