@@ -9,6 +9,9 @@ public class GameBoard : MonoBehaviour {
 
 	public int totalPellets = 0;
 	public int score = 0;
+	public int pacManLives = 3;
+
+
 	public AudioClip bgAudioNormal;
 	public AudioClip bgAudioFrightened;
 
@@ -45,6 +48,19 @@ public class GameBoard : MonoBehaviour {
 			}
 		}
 		
+	}
+
+	public void Restart () {
+		pacManLives -= 1;
+		GameObject pacMan = GameObject.Find ("PacMan");
+		pacMan.transform.GetComponent<PacMan> ().Restart ();
+
+		GameObject [] o = GameObject.FindGameObjectsWithTag ("Ghost");
+		foreach (GameObject ghost in o)
+		{
+			ghost.transform.GetComponent<Ghost> ().Restart ();
+		}
+
 	}
 	
 	// Update is called once per frame

@@ -23,12 +23,16 @@ public class PacMan : MonoBehaviour {
 	// Store Pac-Man current Position 
 	private Node currentNode, previousNode, targetNode;
 
+	private Node startingPosition;
+
 	// Use this for initialization
 	void Start () {
 
 		audio = transform.GetComponent<AudioSource> ();
 
 		Node node = GetNodeAtPosition (transform.localPosition);
+
+		startingPosition = node;
 
 		// Find which Pellet PacMan is at 
 		if (node != null) {
@@ -37,6 +41,19 @@ public class PacMan : MonoBehaviour {
 
 		direction = Vector2.left;
 		orientation = Vector2.left;
+		ChangePosition (direction);
+	}
+
+	// Reset Pac-Mans position
+	public void Restart () {
+		transform.position = startingPosition.transform.position;
+
+		currentNode = startingPosition;
+
+		direction = Vector2.left;
+		orientation = Vector2.left;
+		nextDirection = Vector2.left;
+
 		ChangePosition (direction);
 	}
 	
