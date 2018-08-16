@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour {
 
-	public bool isOnePlayerGame = true;
+	// Static are called with the type name. No instance is required—this makes them slightly faster. Static methods can be public or private.
+	public static bool isOnePlayerGame = true;
 
 	public Text playerText1;
 	public Text playerText2;
