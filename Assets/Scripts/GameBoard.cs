@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameBoard : MonoBehaviour {
 
@@ -204,6 +205,8 @@ public class GameBoard : MonoBehaviour {
 
 	}
 
+	// Hide ghosts, disable pacman animation and make him visible. 
+	// hide player text and after 2 seconds goto IE - StartGameAfter
 	IEnumerator ShowObjectAfter (float delay) {
 
 		yield return new WaitForSeconds (delay);
@@ -225,6 +228,8 @@ public class GameBoard : MonoBehaviour {
 
 	}
 
+	// ghosts can move, enable pacman animation and make him moveable.
+	// hide ready text and play background music
 	IEnumerator StartGameAfter (float delay) {
 
 		yield return new WaitForSeconds (delay);
@@ -243,10 +248,9 @@ public class GameBoard : MonoBehaviour {
 
 		transform.GetComponent<AudioSource> ().clip = bgAudioNormal;
 		transform.GetComponent<AudioSource> ().Play ();
-
 	}
 
-	// If pacMan dies. Stop Ghost, Pacman and All Animation. 
+	// When pacMan dies. Stop ghost, pacman and all animation 
 	public void StartDeath () {
 		if (!didStartDeath) {
 
@@ -275,8 +279,7 @@ public class GameBoard : MonoBehaviour {
 		}
 	}
 
-	// Find and Make the Ghosts Invisible. 
-	// Loop to IEnumerator ProcessDeathAnimation
+	// make ghosts invisible, loop to IEnumerator ProcessDeathAnimation
 	IEnumerator ProcessDeathAfter (float delay) {
 		yield return new WaitForSeconds (delay);
 
@@ -308,22 +311,48 @@ public class GameBoard : MonoBehaviour {
 		
 	}
 
-	// Find pacMan and Make him Invisible for 1 Second.
-	// Stop Audio and finish with a call to Restart method.  
+	// (1S): lose one life, player text / ready text is visible
+	// pacman is invisible, stops audio and call IE - ProcessRestartShowObjects.  
 	IEnumerator ProcessRestart (float delay) {
-		playerText.transform.GetComponent<Text> ().enabled = true;
-		readyText.transform.GetComponent<Text> ().enabled = true;
+		pacManLives -= 1;
 
-		GameObject pacMan = GameObject.Find ("PacMan");
-		pacMan.transform.GetComponent<SpriteRenderer> ().enabled = false;
+		if (pacManLives == 0) {
+			playerText.transform.GetComponent<Text> ().enabled = true;
+			readyText.transform.GetComponent<Text> ().text ="GAME OVER";
+			readyText.transform.GetComponent<Text> ().color = Color.red;
 
-		transform.GetComponent<AudioSource> ().Stop ();
+			readyText.transform.GetComponent<Text> ().enabled = true;
 
-		yield return new WaitForSeconds (delay);
+			GameObject pacMan = GameObject.Find ("PacMan");
+			pacMan.transform.GetComponent<SpriteRenderer> ().enabled = false;
 
-		StartCoroutine (ProcessRestartShowObjects (1));
+			transform.GetComponent<AudioSource> ().Stop ();
+
+			StartCoroutine (ProcessGameOver (2));
+
+		} else {
+			playerText.transform.GetComponent<Text> ().enabled = true;
+			readyText.transform.GetComponent<Text> ().enabled = true;
+
+			GameObject pacMan = GameObject.Find ("PacMan");
+			pacMan.transform.GetComponent<SpriteRenderer> ().enabled = false;
+
+			transform.GetComponent<AudioSource> ().Stop ();
+
+			yield return new WaitForSeconds (delay);
+
+			StartCoroutine (ProcessRestartShowObjects (1));
+		}
 	}
 
+	IEnumerator ProcessGameOver (float delay) {
+		yield return new WaitForSeconds (delay);
+
+		SceneManager.LoadScene ("GameMenu");
+	}
+
+	// Hide player text. ghosts are visible and moveable
+	// pacman is visible, stop animation and reset his position, then call restart method.
 	IEnumerator ProcessRestartShowObjects (float delay) {
 		playerText.transform.GetComponent<Text> ().enabled = false;
 		GameObject [] o = GameObject.FindGameObjectsWithTag ("Ghost");
@@ -345,10 +374,11 @@ public class GameBoard : MonoBehaviour {
 		Restart ();
 	}
 
+	// hide ready text. decrease one life, use pacMan restart method
+	// Use ghost restart method, play background music, disable didstartdeath. 
 	public void Restart () {
 
 		readyText.transform.GetComponent<Text> ().enabled = false;
-		pacManLives -= 1;
 
 		GameObject pacMan = GameObject.Find ("PacMan");
 		pacMan.transform.GetComponent<PacMan> ().Restart ();
