@@ -49,23 +49,26 @@ public class PacMan : MonoBehaviour {
 		ChangePosition (direction);
 	}
 
-	// Reset Pac-Mans position
-	public void Restart () {
-
-		canMove = true;
-		transform.GetComponent<Animator> ().runtimeAnimatorController = chompAnimation;
-		transform.GetComponent<Animator> ().enabled = true;
-
-		transform.GetComponent<SpriteRenderer> ().enabled = true;
+	public void MoveToStartingPosition () {
 		transform.position = startingPosition.transform.position;
-
-		currentNode = startingPosition;
-
+		transform.GetComponent<SpriteRenderer> ().sprite = idleSprite;
 		direction = Vector2.left;
 		orientation = Vector2.left;
+		UpdateOrientation ();
+	}
+
+	// Reset Pac-Mans position
+	public void Restart () {
+		canMove = true;
+		
+		currentNode = startingPosition;
 		nextDirection = Vector2.left;
 
+		transform.GetComponent<Animator> ().runtimeAnimatorController = chompAnimation;
+		transform.GetComponent<Animator> ().enabled = true;	
+
 		ChangePosition (direction);
+		
 	}
 	
 	// Update is called once per frame

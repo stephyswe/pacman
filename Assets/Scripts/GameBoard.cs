@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameBoard : MonoBehaviour {
 
@@ -18,6 +19,9 @@ public class GameBoard : MonoBehaviour {
 	public AudioClip bgAudioFrightened;
 	public AudioClip bgAudioPacManDeath;
 
+	public Text playerText;
+	public Text readyText;
+
 	public GameObject[,] board = new GameObject[boardWidth, boardHeight];
 
 	// Use this for initialization
@@ -33,7 +37,7 @@ public class GameBoard : MonoBehaviour {
 			Vector2 pos = o.transform.position;
 
 			// Checks name of the Object that was Found - Pellets = Empty.
-			if (o.name != "PacMan" && o.name != "Nodes" && o.name != "NonNodes" && o.name != "Maze" && o.name != "Pellets" && o.name != "bottom_left_corner_single" && o.name != "Ghost" && o.tag != "ghostHome") {
+			if (o.name != "PacMan" && o.name != "Nodes" && o.name != "NonNodes" && o.name != "Maze" && o.name != "Pellets" && o.name != "bottom_left_corner_single" && o.name != "Ghost" && o.tag != "ghostHome" && o.name != "Canvas" && o.name != "PlayerText" && o.name != "ReadyText") {
 				
 				// If Object is a Tile Component [ Pellet, Node or Portal ]
 				if (o.GetComponent<Tile> () != null ) {
@@ -50,6 +54,68 @@ public class GameBoard : MonoBehaviour {
 				//Debug.Log ("Found PacMan at: " +pos);
 			}
 		}
+
+		StartGame ();
+	}
+
+	public void StartGame () {
+
+		//- Hide All Ghosts
+		GameObject [] o = GameObject.FindGameObjectsWithTag ("Ghost");
+		foreach (GameObject ghost in o)
+		{
+			ghost.transform.GetComponent<SpriteRenderer> ().enabled = false;
+			ghost.transform.GetComponent<Ghost> ().canMove = false;
+		}
+
+		GameObject pacMan = GameObject.Find ("PacMan");
+		pacMan.transform.GetComponent<SpriteRenderer> ().enabled = false;
+		pacMan.transform.GetComponent<PacMan> ().canMove = false;
+
+		StartCoroutine (ShowObjectAfter (2.25f));
+
+	}
+
+	IEnumerator ShowObjectAfter (float delay) {
+
+		yield return new WaitForSeconds (delay);
+
+		//- Hide All Ghosts
+		GameObject [] o = GameObject.FindGameObjectsWithTag ("Ghost");
+		foreach (GameObject ghost in o)
+		{
+			ghost.transform.GetComponent<SpriteRenderer> ().enabled = true;
+		}
+
+		GameObject pacMan = GameObject.Find ("PacMan");
+		pacMan.transform.GetComponent<Animator> ().enabled = false;
+		pacMan.transform.GetComponent<SpriteRenderer> ().enabled = true;
+
+		playerText.transform.GetComponent<Text> ().enabled = false;
+
+		StartCoroutine (StartGameAfter (2));
+
+	}
+
+	IEnumerator StartGameAfter (float delay) {
+
+		yield return new WaitForSeconds (delay);
+
+		GameObject [] o = GameObject.FindGameObjectsWithTag ("Ghost");
+		foreach (GameObject ghost in o)
+		{
+			ghost.transform.GetComponent<Ghost> ().canMove = true;
+		}
+
+		GameObject pacMan = GameObject.Find ("PacMan");
+		pacMan.transform.GetComponent<Animator> ().enabled = true;
+		pacMan.transform.GetComponent<PacMan> ().canMove = true;
+
+		readyText.transform.GetComponent<Text> ().enabled = false;
+
+		transform.GetComponent<AudioSource> ().clip = bgAudioNormal;
+		transform.GetComponent<AudioSource> ().Play ();
+
 	}
 
 	// If pacMan dies. Stop Ghost, Pacman and All Animation. 
@@ -100,13 +166,16 @@ public class GameBoard : MonoBehaviour {
 
 		yield return new WaitForSeconds (delay);
 
-		StartCoroutine (ProcessRestart (2));			
+		StartCoroutine (ProcessRestart (1));			
 		
 	}
 
-	// Find pacMan and Make him Invisible
+	// Find pacMan and Make him Invisible for 1 Second.
 	// Stop Audio and finish with a call to Restart method.  
 	IEnumerator ProcessRestart (float delay) {
+		playerText.transform.GetComponent<Text> ().enabled = true;
+		readyText.transform.GetComponent<Text> ().enabled = true;
+
 		GameObject pacMan = GameObject.Find ("PacMan");
 		pacMan.transform.GetComponent<SpriteRenderer> ().enabled = false;
 
@@ -114,11 +183,35 @@ public class GameBoard : MonoBehaviour {
 
 		yield return new WaitForSeconds (delay);
 
+		StartCoroutine (ProcessRestartShowObjects (1));
+	}
+
+	IEnumerator ProcessRestartShowObjects (float delay) {
+		playerText.transform.GetComponent<Text> ().enabled = false;
+		GameObject [] o = GameObject.FindGameObjectsWithTag ("Ghost");
+		foreach (GameObject ghost in o)
+		{
+			ghost.transform.GetComponent<SpriteRenderer> ().enabled = true;
+			ghost.transform.GetComponent<Ghost> ().MoveToStartingPosition ();
+
+		}
+
+		GameObject pacMan = GameObject.Find ("PacMan");
+
+		pacMan.transform.GetComponent<Animator> ().enabled = false;
+		pacMan.transform.GetComponent<SpriteRenderer> ().enabled = true;
+		pacMan.transform.GetComponent<PacMan> ().MoveToStartingPosition ();
+
+		yield return new WaitForSeconds (delay);
+
 		Restart ();
 	}
 
 	public void Restart () {
+
+		readyText.transform.GetComponent<Text> ().enabled = false;
 		pacManLives -= 1;
+
 		GameObject pacMan = GameObject.Find ("PacMan");
 		pacMan.transform.GetComponent<PacMan> ().Restart ();
 
