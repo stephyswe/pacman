@@ -29,6 +29,16 @@ public class Ghost : MonoBehaviour {
 	public int[] scatterModeTimer = new [] {7, 8, 9, 10};
 	public int[] chaseModeTimer = new [] {20, 21, 22, 23};
 
+	private int scatterModeTimer1 = 0;
+	private int scatterModeTimer2 = 0;
+	private int scatterModeTimer3 = 0;
+	private int scatterModeTimer4 = 0;
+
+	private int chaseModeTimer1 = 0;
+	private int chaseModeTimer2 = 0;
+	private int chaseModeTimer3 = 0;
+	private int chaseModeTimer4 = 0;
+
 	public Sprite eyesUp;
 	public Sprite eyesDown;
 	public Sprite eyesLeft;
@@ -82,6 +92,13 @@ public class Ghost : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		if (GameBoard.isPlayerOneUp) {
+			SetDifficultyForLevel(GameBoard.playerOneLevel);
+
+		} else {
+			SetDifficultyForLevel(GameBoard.playerTwoLevel);
+		}
+
 		bgAudio = GameObject.Find("Game").transform.GetComponent<AudioSource> ();
 
 		pacMan = GameObject.FindGameObjectWithTag("PacMan");
@@ -102,6 +119,101 @@ public class Ghost : MonoBehaviour {
 
 		previousNode = currentNode;
 		UpdateAnimatorController ();	
+	}
+
+	void SetDifficultyForLevel (int level) {
+		if (level == 2) {
+			scatterModeTimer1 = 7;
+			scatterModeTimer2 = 7;
+			scatterModeTimer3 = 5;
+			scatterModeTimer4 = 1;
+
+			chaseModeTimer1 = 20;
+			chaseModeTimer2 = 20;
+			chaseModeTimer3 = 1033;
+
+			frightenedModeDuration = 9;
+			startBlinkingAt = 6;
+
+			pinkyReleaseTimer = 4;
+			inkyReleaseTimer = 12;
+			clydeReleaseTimer = 18;
+
+			moveSpeed = 6.9f;
+			normalMoveSpeed = 6.9f;
+			frightenedSpeed = 3.9f;
+			consumedMoveSpeed = 18f;
+
+
+		} else if (level == 3) {
+
+			scatterModeTimer1 = 7;
+			scatterModeTimer2 = 7;
+			scatterModeTimer3 = 5;
+			scatterModeTimer4 = 1;
+
+			chaseModeTimer1 = 20;
+			chaseModeTimer2 = 20;
+			chaseModeTimer3 = 1033;
+
+			frightenedModeDuration = 8;
+			startBlinkingAt = 5;
+
+			pinkyReleaseTimer = 3;
+			inkyReleaseTimer = 10;
+			clydeReleaseTimer = 15;
+
+			moveSpeed = 7.9f;
+			normalMoveSpeed = 7.9f;
+			frightenedSpeed = 4.9f;
+			consumedMoveSpeed = 20f;
+
+		} else if (level == 4) {
+
+			scatterModeTimer1 = 7;
+			scatterModeTimer2 = 7;
+			scatterModeTimer3 = 5;
+			scatterModeTimer4 = 1;
+
+			chaseModeTimer1 = 20;
+			chaseModeTimer2 = 20;
+			chaseModeTimer3 = 1033;
+
+			frightenedModeDuration = 7;
+			startBlinkingAt = 4;
+
+			pinkyReleaseTimer = 2;
+			inkyReleaseTimer = 8;
+			clydeReleaseTimer = 13;
+
+			moveSpeed = 8.9f;
+			normalMoveSpeed = 8.9f;
+			frightenedSpeed = 5.9f;
+			consumedMoveSpeed = 22f;
+			
+		} else if (level == 5) {
+
+			scatterModeTimer1 = 5;
+			scatterModeTimer2 = 5;
+			scatterModeTimer3 = 5;
+			scatterModeTimer4 = 1;
+
+			chaseModeTimer1 = 20;
+			chaseModeTimer2 = 20;
+			chaseModeTimer3 = 1033;
+
+			frightenedModeDuration = 6;
+			startBlinkingAt = 3;
+
+			pinkyReleaseTimer = 2;
+			inkyReleaseTimer = 6;
+			clydeReleaseTimer = 10;
+
+			moveSpeed = 9.9f;
+			normalMoveSpeed = 9.9f;
+			frightenedSpeed = 6.9f;
+			consumedMoveSpeed = 24f;
+		} 
 	}
 
 	public void MoveToStartingPosition () {
@@ -212,7 +324,7 @@ public class Ghost : MonoBehaviour {
 		if (GameMenu.isOnePlayerGame) {
 			GameBoard.playerOneScore += 200;
 		} else {
-			if (GameObject.Find ("Game").GetComponent<GameBoard> ().isPlayerOneUp) {
+			if (GameBoard.isPlayerOneUp) {
 				GameBoard.playerOneScore += 200;
 			} else {
 				GameBoard.playerTwoScore += 200;

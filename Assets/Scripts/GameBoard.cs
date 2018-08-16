@@ -12,8 +12,8 @@ public class GameBoard : MonoBehaviour {
 	private bool didStartDeath = false;
 	private bool didStartConsumed = false;
 
-	private static int playerOneLevel = 1;
-	private static int playerTwoLevel = 1;
+	public static int playerOneLevel = 1;
+	public static int playerTwoLevel = 1;
 
 	public int playerOnePelletsConsumed = 0;
 	public int playerTwoPelletsConsumed = 0;
@@ -24,7 +24,7 @@ public class GameBoard : MonoBehaviour {
 	public static int playerTwoScore = 0;
 	public int pacManLives = 3;
 
-	public bool isPlayerOneUp = true;
+	public static bool isPlayerOneUp = true;
 	public bool shouldBlink = false;
 
 	public float blinkCountdown = 0.1f;
@@ -51,8 +51,9 @@ public class GameBoard : MonoBehaviour {
 
 	public Text consumedGhostScoreText;
 
-
 	public GameObject[,] board = new GameObject[boardWidth, boardHeight];
+
+	private bool didIncrementLevel = false;
 
 	// Use this for initialization
 	void Start () {
@@ -82,6 +83,16 @@ public class GameBoard : MonoBehaviour {
 				board [(int)pos.x, (int)pos.y] = o;
 			} else {
 				//Debug.Log ("Found PacMan at: " +pos);
+			}
+		}
+
+		if (playerOneUp) {
+			if (playerOneLevel == 1) {
+				GetComponent<AudioSource> ().Play ();
+			}
+		} else {
+			if (playerTwoLevel == 1) {
+				GetComponent<AudioSource> ().Play ();
 			}
 		}
 
@@ -132,9 +143,16 @@ public class GameBoard : MonoBehaviour {
 	// Increment Level depending on player, goto ProcessWin after 2 seconds
 	void PlayerWin (int playerNum) {
 		if (playerNum == 1) {
-			playerOneLevel++;
+
+			if (!didIncrementLevel) {
+				didIncrementLevel = true;
+				playerOneLevel++;
+			}
 		} else {
-			playerTwoLevel++;
+			if (!didIncrementLevel) {
+				didIncrementLevel = true;
+				playerTwoLevel++;
+			}	
 		}
 
 		StartCoroutine (ProcessWin (2));

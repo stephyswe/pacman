@@ -456,15 +456,17 @@ MonoBehaviour:
   playerTwoPelletsConsumed: 0
   totalPellets: 0
   score: 0
-  playerOneScore: 0
-  playerTwoScore: 0
   pacManLives: 3
   isPlayerOneUp: 1
+  shouldBlink: 0
+  blinkCountdown: 0.1
   bgAudioNormal: {fileID: 8300000, guid: d44ca84a8db9ea14a9b13e7b6bf41147, type: 3}
   bgAudioFrightened: {fileID: 8300000, guid: 4df503727c9b7fb4798213081e5eaca4, type: 3}
   bgAudioPacManDeath: {fileID: 8300000, guid: 16e85bfee95532e49b669dc4d123bd7c, type: 3}
   consumedGhostAudioClip: {fileID: 8300000, guid: cff14d3417a43f344b6c9050a55e2ab2,
     type: 3}
+  mazeBlue: {fileID: 21300000, guid: f65484ff86972de4d8bcad623af33694, type: 3}
+  mazeWhite: {fileID: 21300000, guid: e612d67c200cb594cba26320d758c967, type: 3}
   playerText: {fileID: 379805035}
   readyText: {fileID: 360065159}
   highScoreText: {fileID: 1080429262}
@@ -19365,7 +19367,7 @@ GameObject:
   - component: {fileID: 1753190612}
   - component: {fileID: 1753190611}
   m_Layer: 0
-  m_Name: maze-blue
+  m_Name: Maze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

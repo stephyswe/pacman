@@ -45,8 +45,29 @@ public class PacMan : MonoBehaviour {
 		direction = Vector2.left;
 		orientation = Vector2.left;
 		ChangePosition (direction);
+
+		if (GameBoard.isPlayerOneUp) {
+			SetDifficultyForLevel ( GameBoard.playerOneLevel);
+		} else {
+			SetDifficultyForLevel ( GameBoard.playerTwoLevel);
+		}
 	}
 
+	// Difficulty changes by 1 per level
+	void SetDifficultyForLevel (int level) {
+		if (level == 2) {
+			
+			speed = 7;
+		} else if (level == 3) {
+			speed = 8;
+		} else if (level == 4) {
+			speed = 9;
+		} else if (level == 5) {
+			speed = 10;
+		} 
+	}
+
+	// Pacman moves to start position, sprite is idle, and orientation and direction is left
 	public void MoveToStartingPosition () {
 		transform.position = startingPosition.transform.position;
 		transform.GetComponent<SpriteRenderer> ().sprite = idleSprite;
@@ -224,7 +245,7 @@ public class PacMan : MonoBehaviour {
 						GameBoard.playerOneScore += 10;
 						GameObject.Find("Game").transform.GetComponent<GameBoard> ().playerOnePelletsConsumed++;
 					} else {
-						if (GameObject.Find("Game").transform.GetComponent<GameBoard> ().isPlayerOneUp) {
+						if (GameBoard.isPlayerOneUp) {
 							GameBoard.playerOneScore += 10;
 							GameObject.Find("Game").transform.GetComponent<GameBoard> ().playerOnePelletsConsumed++;
 						} else {
