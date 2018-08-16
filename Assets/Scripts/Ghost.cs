@@ -15,11 +15,10 @@ public class Ghost : MonoBehaviour {
 	private int pinkyReleaseTimer = 5;
 	private int inkyReleaseTimer = 14;
 	private int clydeReleaseTimer = 21;
+	private float ghostReleaseTimer = 0;
 
 	public int frightenedModeDuration = 10;
 	public int startBlinkingAt = 7;
-
-	private float ghostReleaseTimer = 0;
 
 	public bool isInGhostHouse = false;
 
@@ -99,7 +98,6 @@ public class Ghost : MonoBehaviour {
 		} else {
 			direction = Vector2.left;
 			targetNode = ChooseNextNode ();
-			//Debug.Log ("TARGET NODE: " + targetNode);
 		}
 
 		previousNode = currentNode;
@@ -212,12 +210,12 @@ public class Ghost : MonoBehaviour {
 	void Consumed () {
 
 		if (GameMenu.isOnePlayerGame) {
-			GameObject.Find ("Game").GetComponent<GameBoard> ().playerOneScore += 200;
+			GameBoard.playerOneScore += 200;
 		} else {
 			if (GameObject.Find ("Game").GetComponent<GameBoard> ().isPlayerOneUp) {
-				GameObject.Find ("Game").GetComponent<GameBoard> ().playerOneScore += 200;
+				GameBoard.playerOneScore += 200;
 			} else {
-				GameObject.Find ("Game").GetComponent<GameBoard> ().playerTwoScore += 200;
+				GameBoard.playerTwoScore += 200;
 			}
 		}
 
