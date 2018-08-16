@@ -12,6 +12,13 @@ public class GameBoard : MonoBehaviour {
 	private bool didStartDeath = false;
 	private bool didStartConsumed = false;
 
+	private int playerOneLevel = 1;
+	private int playerTwoLevel = 1;
+
+
+	public int playerOnePelletsConsumed = 0;
+	public int playerTwoPelletsConsumed = 0;
+
 	public int totalPellets = 0;
 	public int score = 0;
 	public int playerOneScore = 0;
@@ -77,7 +84,7 @@ public class GameBoard : MonoBehaviour {
 
 	void Update () {
 		UpdateUI ();
-
+		CheckPelletsConsumed ();
 	}
 
 	void UpdateUI () {
@@ -97,6 +104,71 @@ public class GameBoard : MonoBehaviour {
 			playerLives3.enabled = false;
 			playerLives2.enabled = false;
 		}
+	}
+
+	void CheckPelletsConsumed () {
+		if (isPlayerOneUp) {
+			//- Player one is playing
+			if (totalPellets == playerOnePelletsConsumed) {
+				
+				PlayerWin(1);
+			}
+		} else {
+			//- Player two is playing
+			if (totalPellets == playerTwoPelletsConsumed) {
+				
+				PlayerWin(2);	
+			}
+		}
+	}
+
+	// Increment Level depending on player, goto ProcessWin after 2 seconds
+	void PlayerWin (int playerNum) {
+		if (playerNum == 1) {
+			playerOneLevel++;
+
+		} else {
+			playerTwoLevel++;
+		}
+
+		StartCoroutine (ProcessWin (2));
+	}
+
+	// stop animation for ghosts and pacman, stop sound, goto BlinkBoard after 2 seconds
+	IEnumerator ProcessWin (float delay) {
+
+		GameObject pacMan = GameObject.Find ("PacMan");
+		pacMan.transform.GetComponent<PacMan> ().canMove = false;
+		pacMan.transform.GetComponent<Animator> ().enabled = false;
+
+		transform.GetComponent<AudioSource> ().Stop ();
+
+		GameObject [] o = GameObject.FindGameObjectsWithTag ("Ghost");
+		foreach (GameObject ghost in o)
+		{
+			ghost.transform.GetComponent<Ghost> ().canMove = false;
+			ghost.transform.GetComponent<Animator> ().enabled = false;
+		}
+
+		yield return new WaitForSeconds (delay);
+		StartCoroutine (BlinkBoard (2));
+	}
+
+	IEnumerator BlinkBoard (float delay) {
+		GameObject pacMan = GameObject.Find ("PacMan");
+		pacMan.transform.GetComponent<SpriteRenderer> ().enabled = false;
+
+		GameObject[] o = GameObject.FindGameObjectsWithTag("Ghost");
+		foreach (GameObject ghost in o)
+		{
+			ghost.transform.GetComponent<SpriteRenderer> ().enabled = false;
+		}
+
+		//- Blink Board
+
+		yield return new WaitForSeconds (delay);
+
+		//- Restart the game at the next level
 	}
 
 	public void StartGame () {

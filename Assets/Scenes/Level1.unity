@@ -1334,6 +1334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e0f9ac845c43f40b88d219fc67b686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOnePelletsConsumed: 0
+  playerTwoPelletsConsumed: 0
   totalPellets: 0
   score: 0
   playerOneScore: 0
@@ -5151,24 +5153,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4054805603444884, guid: 1eef10b537c7c4257a9308f7088fbc19,
     type: 2}
   m_PrefabInternal: {fileID: 2034426873}
---- !u!114 &157131154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 157131152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab28fd745541a48ac8b1181f14e5bec5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPortal: 1
-  isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
-  isGhostHouseEntrance: 0
-  isGhostHouse: 0
-  portalReceiver: {fileID: 459403943}
 --- !u!114 &157131155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13571,24 +13555,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1445385941526110, guid: 1eef10b537c7c4257a9308f7088fbc19,
     type: 2}
   m_PrefabInternal: {fileID: 305292204}
---- !u!114 &459403944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 459403943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab28fd745541a48ac8b1181f14e5bec5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPortal: 1
-  isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
-  isGhostHouseEntrance: 0
-  isGhostHouse: 0
-  portalReceiver: {fileID: 157131152}
 --- !u!114 &459403945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13620,7 +13586,7 @@ MonoBehaviour:
   didConsume: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
-  portalReceiver: {fileID: 459403943}
+  portalReceiver: {fileID: 157131152}
 --- !u!4 &459403947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4054805603444884, guid: 1eef10b537c7c4257a9308f7088fbc19,

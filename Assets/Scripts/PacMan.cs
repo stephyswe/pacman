@@ -23,9 +23,7 @@ public class PacMan : MonoBehaviour {
 	private Vector2 direction = Vector2.zero;
 	private Vector2 nextDirection;
 
-	private int pelletsConsumed = 0;
-
-	// Store Pac-Man current Position 
+	// Pac-Man current position 
 	private Node currentNode, previousNode, targetNode;
 
 	private Node startingPosition;
@@ -211,31 +209,31 @@ public class PacMan : MonoBehaviour {
 	void ConsumePellet () {
 		GameObject o = GetTileAtPosition (transform.position);
 
-		// Position is tile or pellet
 		if (o != null) {
 			Tile tile = o.GetComponent<Tile> ();
 
-			// If GameObject(pellet) on Tile exists
+			// If tile hasn't been consumed
 			if (tile != null) {
 
-				// And Superpellet / Pellet hasn't been consumed
-				// Remove pellet sprite and set consumed to true.
-				// Increment Score and pelletsConsumed by 1. 
+				// If super pellet or pellet, increment score by 1 and set consumed pellets to true. 
 				if (!tile.didConsume && (tile.isPellet || tile.isSupperPellet)) {
 					o.GetComponent<SpriteRenderer> ().enabled = false;
 					tile.didConsume = true;
 
 					if (GameMenu.isOnePlayerGame) {
 						GameObject.Find("Game").transform.GetComponent<GameBoard> ().playerOneScore += 10;
+						GameObject.Find("Game").transform.GetComponent<GameBoard> ().playerOnePelletsConsumed++;
 					} else {
 						if (GameObject.Find("Game").transform.GetComponent<GameBoard> ().isPlayerOneUp) {
 							GameObject.Find("Game").transform.GetComponent<GameBoard> ().playerOneScore += 10;
+							GameObject.Find("Game").transform.GetComponent<GameBoard> ().playerOnePelletsConsumed++;
 						} else {
 							GameObject.Find("Game").transform.GetComponent<GameBoard> ().playerTwoScore += 10;
+							GameObject.Find("Game").transform.GetComponent<GameBoard> ().playerTwoPelletsConsumed++;
 						}
 
 					}
-					pelletsConsumed++;
+
 					PlayChompSound ();
 
 					if (tile.isSupperPellet) {
@@ -250,8 +248,7 @@ public class PacMan : MonoBehaviour {
 		}
 	}
 
-	// Press a Button - Node checks Valid Positions
-	// If Ok, Pac-Man position is set to neighbor Node. 
+	// Checks if Pacman can CanMove, and set his position to neighbor node
 	Node CanMove (Vector2 d) {
 		Node moveToNode = null;
 		for (int i = 0; i < currentNode.neighbors.Length; i++)
@@ -264,7 +261,7 @@ public class PacMan : MonoBehaviour {
 		return moveToNode;
 	}
 
-	// Get Tile of PacMan current Position
+	// Get tile of pacMan current position
 	GameObject GetTileAtPosition (Vector2 pos) {
 		int tileX = Mathf.RoundToInt (pos.x);
 		int tileY = Mathf.RoundToInt (pos.y);
@@ -283,7 +280,7 @@ public class PacMan : MonoBehaviour {
 		}
 		return null;
 	}
-	// Checks if Pacman moves away from Nodes allowed Directions.
+	// checks if pacman moves away from nodes allowed directions.
 	bool OverShotTarget () {
 		float nodeToTarget = LengthFromNode (targetNode.transform.position);
 		float nodetoSelf = LengthFromNode (transform.localPosition);
@@ -296,20 +293,18 @@ public class PacMan : MonoBehaviour {
 		return vec.sqrMagnitude;
 	}
 
+
 	GameObject GetPortal (Vector2 pos) {
 		GameObject tile = GameObject.Find ("Game").GetComponent<GameBoard>().board[(int)pos.x, (int)pos.y];
 		if (tile != null) {
 
-			// Check if GameObject in that Position has Tile Component
-			if (tile.GetComponent<Tile> () != null) {
-				
-				// Check if it is Portal 
-				if (tile.GetComponent<Tile> ().isPortal) {
+			// GameObject has Tile Component and is portal
+			if (tile.GetComponent<Tile> () != null && tile.GetComponent<Tile> ().isPortal) {
 
-					// Create GameObject. Store PortalReciever and returns Other portal.
-					GameObject otherPortal = tile.GetComponent<Tile> ().portalReceiver;
-					return otherPortal;
-				}
+				// use tile.portalreceiver and return other portal
+				GameObject otherPortal = tile.GetComponent<Tile> ().portalReceiver;
+				return otherPortal;
+
 			}
 		}
 		return null;
