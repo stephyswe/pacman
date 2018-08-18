@@ -20,6 +20,8 @@ public class GameBoard : MonoBehaviour {
 	public static int playerOneScore = 0;
 	public static int playerTwoScore = 0;
 
+	public static int ghostConsumedRunningScore;
+
 	public static bool isPlayerOneUp = true;
 	public bool shouldBlink = false;
 
@@ -322,6 +324,9 @@ public class GameBoard : MonoBehaviour {
 			Vector2 viewPortPoint = Camera.main.WorldToViewportPoint (pos);
 			consumedGhostScoreText.GetComponent<RectTransform> ().anchorMin = viewPortPoint;
 			consumedGhostScoreText.GetComponent<RectTransform> ().anchorMax = viewPortPoint;
+
+			// Show '200' when Ghost is Consumed
+			consumedGhostScoreText.text = ghostConsumedRunningScore.ToString ();
 			consumedGhostScoreText.GetComponent<Text> ().enabled = true;
 
 			//- Play the consumed Sound

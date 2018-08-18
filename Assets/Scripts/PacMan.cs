@@ -17,7 +17,7 @@ public class PacMan : MonoBehaviour {
 	public bool canMove = true;
 
 	private bool playedChomp1 = false;
-	private AudioSource audio;
+	private new AudioSource audio;
 
 
 	private Vector2 direction = Vector2.zero;
@@ -245,14 +245,24 @@ public class PacMan : MonoBehaviour {
 					if (!tile.didConsumePlayerOne && (tile.isPellet || tile.isSuperPellet)) {
 						didConsume = true;
 						tile.didConsumePlayerOne = true;
-						GameBoard.playerOneScore += 10;
+
+						if (tile.isSuperPellet)
+							GameBoard.playerOneScore += 50;
+						else
+							GameBoard.playerOneScore += 10;
+							
 						GameMenu.playerOnePelletsConsumed++;
 					}
 				} else {
 					if (!tile.didConsumePlayerTwo && (tile.isPellet || tile.isSuperPellet)) {
 						didConsume = true;
 						tile.didConsumePlayerTwo = true;
-						GameBoard.playerTwoScore += 10;
+						
+						if (tile.isSuperPellet)
+							GameBoard.playerTwoScore += 50;
+						else
+							GameBoard.playerTwoScore += 10;
+
 						GameMenu.playerTwoPelletsConsumed++;
 					}
 				}

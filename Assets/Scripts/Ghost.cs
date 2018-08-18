@@ -343,12 +343,12 @@ public class Ghost : MonoBehaviour {
 	void Consumed () {
 
 		if (GameMenu.isOnePlayerGame) {
-			GameBoard.playerOneScore += 200;
+			GameBoard.playerOneScore += GameBoard.ghostConsumedRunningScore;
 		} else {
 			if (GameBoard.isPlayerOneUp) {
-				GameBoard.playerOneScore += 200;
+				GameBoard.playerOneScore += GameBoard.ghostConsumedRunningScore;
 			} else {
-				GameBoard.playerTwoScore += 200;
+				GameBoard.playerTwoScore += GameBoard.ghostConsumedRunningScore;
 			}
 		}
 
@@ -358,6 +358,8 @@ public class Ghost : MonoBehaviour {
 		UpdateAnimatorController ();
 
 		GameObject.Find ("Game").transform.GetComponent<GameBoard> ().StartConsumed (this.GetComponent<Ghost> ());
+
+		GameBoard.ghostConsumedRunningScore = GameBoard.ghostConsumedRunningScore * 2;
 	}
 
 	void UpdateAnimatorController () {
@@ -590,6 +592,10 @@ public class Ghost : MonoBehaviour {
 
 	public void StartFrightenedMode() {
 		if (currentMode != Mode.Consumed) {
+
+			// Reset Ghost Running Score to 200
+			GameBoard.ghostConsumedRunningScore = 200;
+
 			frightenedModeTimer = 0;
 			bgAudio.clip = GameObject.Find("Game").transform.GetComponent<GameBoard> ().bgAudioFrightened;
 			bgAudio.Play ();
