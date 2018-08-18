@@ -146,8 +146,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -282,8 +283,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -305,8 +307,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -452,12 +455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e0f9ac845c43f40b88d219fc67b686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnePelletsConsumed: 0
-  playerTwoPelletsConsumed: 0
   totalPellets: 0
   score: 0
-  pacManLives: 3
-  isPlayerOneUp: 1
   shouldBlink: 0
   blinkCountdown: 0.1
   bgAudioNormal: {fileID: 8300000, guid: d44ca84a8db9ea14a9b13e7b6bf41147, type: 3}
@@ -488,7 +487,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &39421716
 AudioSource:
@@ -500,7 +499,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 82eb2198463e20041a8c688211e49594, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
@@ -603,8 +602,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -968,8 +968,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1007,8 +1008,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1103,8 +1105,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1126,8 +1129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1222,8 +1226,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1245,8 +1250,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1397,8 +1403,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1420,8 +1427,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1458,8 +1466,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1652,8 +1661,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1732,8 +1742,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1755,8 +1766,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1794,8 +1806,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1817,8 +1830,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1897,8 +1911,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -1996,11 +2011,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 1
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 459403943}
+--- !u!4 &159370009 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4301314257514066, guid: 4a153bb96d824e0459c6f8618e46a287,
+    type: 2}
+  m_PrefabInternal: {fileID: 1490978839}
 --- !u!1001 &165120559
 Prefab:
   m_ObjectHideFlags: 0
@@ -2133,8 +2154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -2498,8 +2520,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -2578,8 +2601,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -2715,8 +2739,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -2754,8 +2779,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -2834,8 +2860,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -3121,8 +3148,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -3144,8 +3172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -3182,8 +3211,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -3475,7 +3505,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &305292204
 Prefab:
@@ -3650,8 +3680,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -3805,8 +3836,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -3845,8 +3877,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -3925,8 +3958,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -4005,8 +4039,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -4044,8 +4079,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -4181,8 +4217,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -4204,8 +4241,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -4227,8 +4265,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -4288,7 +4327,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: bb40da2e5a72d0d4fa97298c64d8ec52, type: 3}
-    m_FontSize: 34
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -4382,8 +4421,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -4729,8 +4769,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -4790,7 +4831,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: bb40da2e5a72d0d4fa97298c64d8ec52, type: 3}
-    m_FontSize: 34
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -4896,8 +4937,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -4976,8 +5018,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5124,8 +5167,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 1
-  didConsume: 0
+  isSuperPellet: 1
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5147,8 +5191,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5170,8 +5215,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5193,8 +5239,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5216,8 +5263,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5253,8 +5301,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 1
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 157131152}
@@ -5281,8 +5330,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5304,8 +5354,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5327,8 +5378,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5350,8 +5402,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5430,8 +5483,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5470,8 +5524,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5493,8 +5548,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5573,8 +5629,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5680,8 +5737,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 1
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5775,8 +5833,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5798,8 +5857,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5821,8 +5881,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5861,8 +5922,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5884,8 +5946,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5907,8 +5970,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -5930,8 +5994,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -6149,8 +6214,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -6229,8 +6295,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -6252,8 +6319,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -6348,8 +6416,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -6656,8 +6725,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -6850,8 +6920,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -6917,7 +6988,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1814384516}
     m_Modifications:
     - target: {fileID: 4535978057728518, guid: d2ba6f7551189dc4e95d5f59ee1067da, type: 2}
       propertyPath: m_LocalPosition.x
@@ -6933,15 +7004,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4535978057728518, guid: d2ba6f7551189dc4e95d5f59ee1067da, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4535978057728518, guid: d2ba6f7551189dc4e95d5f59ee1067da, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4535978057728518, guid: d2ba6f7551189dc4e95d5f59ee1067da, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4535978057728518, guid: d2ba6f7551189dc4e95d5f59ee1067da, type: 2}
       propertyPath: m_LocalRotation.w
@@ -6949,7 +7020,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4535978057728518, guid: d2ba6f7551189dc4e95d5f59ee1067da, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114127544699326692, guid: d2ba6f7551189dc4e95d5f59ee1067da,
         type: 2}
@@ -7078,8 +7149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -7088,7 +7160,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1814384516}
     m_Modifications:
     - target: {fileID: 4322759993681190, guid: c192ddc6e8c67fe4ba4f2408e110d12d, type: 2}
       propertyPath: m_LocalPosition.x
@@ -7104,15 +7176,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4322759993681190, guid: c192ddc6e8c67fe4ba4f2408e110d12d, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4322759993681190, guid: c192ddc6e8c67fe4ba4f2408e110d12d, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4322759993681190, guid: c192ddc6e8c67fe4ba4f2408e110d12d, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4322759993681190, guid: c192ddc6e8c67fe4ba4f2408e110d12d, type: 2}
       propertyPath: m_LocalRotation.w
@@ -7120,7 +7192,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4322759993681190, guid: c192ddc6e8c67fe4ba4f2408e110d12d, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114550330410503448, guid: c192ddc6e8c67fe4ba4f2408e110d12d,
         type: 2}
@@ -7192,8 +7264,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -7272,8 +7345,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -7466,8 +7540,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -7489,8 +7564,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -7517,8 +7593,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -7726,8 +7803,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -7863,8 +7941,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -7886,8 +7965,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -8080,8 +8160,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -8160,8 +8241,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -8183,8 +8265,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -8320,8 +8403,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -8400,8 +8484,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -8537,8 +8622,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -8656,6 +8742,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4054805603444884, guid: 1eef10b537c7c4257a9308f7088fbc19,
     type: 2}
   m_PrefabInternal: {fileID: 796534105}
+--- !u!4 &816480284 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4535978057728518, guid: d2ba6f7551189dc4e95d5f59ee1067da,
+    type: 2}
+  m_PrefabInternal: {fileID: 605250368}
 --- !u!1001 &820393923
 Prefab:
   m_ObjectHideFlags: 0
@@ -8845,8 +8936,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -9039,8 +9131,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -9201,8 +9294,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -9338,8 +9432,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -9502,8 +9597,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -9540,8 +9636,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -9848,8 +9945,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -9887,8 +9985,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -9926,8 +10025,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -9949,8 +10049,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -9972,8 +10073,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -10124,8 +10226,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -10147,8 +10250,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -10170,8 +10274,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -10307,8 +10412,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -10330,8 +10436,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -10420,8 +10527,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 1
   portalReceiver: {fileID: 0}
@@ -10654,8 +10762,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -10734,8 +10843,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -10757,8 +10867,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -10780,8 +10891,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -10876,8 +10988,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -10956,8 +11069,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 1
-  didConsume: 0
+  isSuperPellet: 1
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -11103,7 +11217,7 @@ Transform:
   - {fileID: 1220929279}
   - {fileID: 372361098}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &996201096 stripped
 GameObject:
@@ -11123,8 +11237,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -11203,8 +11318,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -11226,8 +11342,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -11323,8 +11440,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -11346,8 +11464,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -11369,8 +11488,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -11589,8 +11709,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -11656,7 +11777,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1814384516}
     m_Modifications:
     - target: {fileID: 4808470214599648, guid: d51dd3c21b840aa4da63b3ba19690947, type: 2}
       propertyPath: m_LocalPosition.x
@@ -11672,15 +11793,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4808470214599648, guid: d51dd3c21b840aa4da63b3ba19690947, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4808470214599648, guid: d51dd3c21b840aa4da63b3ba19690947, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4808470214599648, guid: d51dd3c21b840aa4da63b3ba19690947, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4808470214599648, guid: d51dd3c21b840aa4da63b3ba19690947, type: 2}
       propertyPath: m_LocalRotation.w
@@ -11688,7 +11809,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4808470214599648, guid: d51dd3c21b840aa4da63b3ba19690947, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114492796517502808, guid: d51dd3c21b840aa4da63b3ba19690947,
         type: 2}
@@ -11931,8 +12052,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -12068,8 +12190,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -12091,8 +12214,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -12189,8 +12313,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -12212,8 +12337,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -12235,8 +12361,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -12315,8 +12442,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -12338,8 +12466,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -12361,8 +12490,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -12522,8 +12652,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 1
   portalReceiver: {fileID: 0}
@@ -12659,8 +12790,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -12682,8 +12814,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -12705,8 +12838,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -13013,11 +13147,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
+--- !u!4 &1149311279 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4808470214599648, guid: d51dd3c21b840aa4da63b3ba19690947,
+    type: 2}
+  m_PrefabInternal: {fileID: 1058783928}
 --- !u!1 &1152965559 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1445385941526110, guid: 1eef10b537c7c4257a9308f7088fbc19,
@@ -13052,8 +13192,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -13075,8 +13216,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -13098,8 +13240,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -13292,8 +13435,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -13330,8 +13474,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -13353,8 +13498,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -13460,8 +13606,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -13612,8 +13759,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -13635,8 +13783,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -13798,8 +13947,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -13821,8 +13971,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -14229,8 +14380,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -14309,8 +14461,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -14332,8 +14485,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -14526,8 +14680,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -14606,8 +14761,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -14629,8 +14785,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -14652,8 +14809,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -14732,8 +14890,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -14944,8 +15103,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -14982,8 +15142,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -15022,8 +15183,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -15317,8 +15479,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -15355,8 +15518,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -15435,8 +15599,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -15651,7 +15816,7 @@ RectTransform:
   - {fileID: 382915154}
   - {fileID: 317199881}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -15676,8 +15841,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -15756,8 +15922,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -15851,8 +16018,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -15956,8 +16124,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -15979,8 +16148,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -16002,8 +16172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -16082,8 +16253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -16121,8 +16293,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -16160,8 +16333,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -16297,8 +16471,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -16320,8 +16495,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -16472,8 +16648,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -16579,8 +16756,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -16602,8 +16780,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -16682,8 +16861,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -16720,8 +16900,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -16758,8 +16939,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -16882,7 +17064,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1814384516}
     m_Modifications:
     - target: {fileID: 4301314257514066, guid: 4a153bb96d824e0459c6f8618e46a287, type: 2}
       propertyPath: m_LocalPosition.x
@@ -16898,15 +17080,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4301314257514066, guid: 4a153bb96d824e0459c6f8618e46a287, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4301314257514066, guid: 4a153bb96d824e0459c6f8618e46a287, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4301314257514066, guid: 4a153bb96d824e0459c6f8618e46a287, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4301314257514066, guid: 4a153bb96d824e0459c6f8618e46a287, type: 2}
       propertyPath: m_LocalRotation.w
@@ -16914,7 +17096,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4301314257514066, guid: 4a153bb96d824e0459c6f8618e46a287, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114708879734900324, guid: 4a153bb96d824e0459c6f8618e46a287,
         type: 2}
@@ -17043,8 +17225,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -17180,8 +17363,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -17203,8 +17387,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -17226,8 +17411,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -17249,8 +17435,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -17272,8 +17459,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -17598,8 +17786,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -17636,8 +17825,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -17749,8 +17939,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -17829,8 +18020,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -17909,8 +18101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -17989,8 +18182,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -18069,8 +18263,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -18149,8 +18344,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -18172,8 +18368,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -18423,8 +18620,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -18503,8 +18701,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 1
-  didConsume: 0
+  isSuperPellet: 1
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -18708,8 +18907,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -18731,8 +18931,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -18895,8 +19096,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -18934,8 +19136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -18973,8 +19176,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -18996,8 +19200,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -19076,8 +19281,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -19156,8 +19362,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -19236,8 +19443,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -19275,8 +19483,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -19314,8 +19523,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -19352,8 +19562,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -19430,7 +19641,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1760661283 stripped
 GameObject:
@@ -19465,8 +19676,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -19602,8 +19814,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -19707,8 +19920,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -20072,8 +20286,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -20095,11 +20310,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
+--- !u!1 &1814384515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1814384516}
+  m_Layer: 0
+  m_Name: Ghosts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1814384516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1814384515}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 159370009}
+  - {fileID: 816480284}
+  - {fileID: 2089417745}
+  - {fileID: 1149311279}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1816337213
 Prefab:
   m_ObjectHideFlags: 0
@@ -20403,8 +20651,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -20443,8 +20692,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -20595,8 +20845,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 1
-  didConsume: 0
+  isSuperPellet: 1
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -20691,8 +20942,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -20787,8 +21039,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -21050,8 +21303,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -21130,8 +21384,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -21324,8 +21579,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -21347,8 +21603,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -21427,8 +21684,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -21450,8 +21708,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -21473,8 +21732,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -21667,8 +21927,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -21772,8 +22033,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -21795,8 +22057,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -21875,8 +22138,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -21955,8 +22219,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -21978,8 +22243,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22001,8 +22267,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22096,8 +22363,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22119,8 +22387,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22256,8 +22525,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22336,8 +22606,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22443,8 +22714,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 1
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22466,8 +22738,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22489,8 +22762,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22651,8 +22925,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 0
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22674,8 +22949,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22754,8 +23030,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22777,8 +23054,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22800,8 +23078,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22823,8 +23102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -22908,8 +23188,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23045,8 +23326,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23125,8 +23407,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23221,8 +23504,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23358,8 +23642,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23438,8 +23723,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23461,11 +23747,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
+--- !u!4 &2089417745 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4322759993681190, guid: c192ddc6e8c67fe4ba4f2408e110d12d,
+    type: 2}
+  m_PrefabInternal: {fileID: 624238634}
 --- !u!1001 &2093450141
 Prefab:
   m_ObjectHideFlags: 0
@@ -23557,8 +23849,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23637,8 +23930,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23660,8 +23954,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23683,8 +23978,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23706,8 +24002,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23745,8 +24042,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23768,8 +24066,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23791,8 +24090,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23871,8 +24171,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}
@@ -23951,8 +24252,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPortal: 0
   isPellet: 1
-  isSupperPellet: 0
-  didConsume: 0
+  isSuperPellet: 0
+  didConsumePlayerOne: 0
+  didConsumePlayerTwo: 0
   isGhostHouseEntrance: 0
   isGhostHouse: 0
   portalReceiver: {fileID: 0}

@@ -29,15 +29,14 @@ public class Ghost : MonoBehaviour {
 	public int[] scatterModeTimer = new [] {7, 8, 9, 10};
 	public int[] chaseModeTimer = new [] {20, 21, 22, 23};
 
-	private int scatterModeTimer1 = 0;
-	private int scatterModeTimer2 = 0;
-	private int scatterModeTimer3 = 0;
-	private int scatterModeTimer4 = 0;
+	private int scatterModeTimer1 = 7;
+	private int scatterModeTimer2 = 7;
+	private int scatterModeTimer3 = 5;
+	private int scatterModeTimer4 = 5;
 
-	private int chaseModeTimer1 = 0;
-	private int chaseModeTimer2 = 0;
-	private int chaseModeTimer3 = 0;
-	private int chaseModeTimer4 = 0;
+	private int chaseModeTimer1 = 20;
+	private int chaseModeTimer2 = 20;
+	private int chaseModeTimer3 = 20;
 
 	public Sprite eyesUp;
 	public Sprite eyesDown;
@@ -121,8 +120,31 @@ public class Ghost : MonoBehaviour {
 		UpdateAnimatorController ();	
 	}
 
-	void SetDifficultyForLevel (int level) {
-		if (level == 2) {
+	// Difficulty Settings for Ghosts
+	public void SetDifficultyForLevel (int level) {
+		if (level == 1) {
+			scatterModeTimer1 = 7;
+			scatterModeTimer2 = 7;
+			scatterModeTimer3 = 5;
+			scatterModeTimer4 = 5;
+
+			chaseModeTimer1 = 20;
+			chaseModeTimer2 = 20;
+			chaseModeTimer3 = 20;
+
+			frightenedModeDuration = 10;
+			startBlinkingAt = 7;
+
+			pinkyReleaseTimer = 5;
+			inkyReleaseTimer = 14;
+			clydeReleaseTimer = 21;
+
+			moveSpeed = 5.9f;
+			normalMoveSpeed = 5.9f;
+			frightenedSpeed = 2.9f;
+			consumedMoveSpeed = 15f;
+
+		} else if (level == 2) {
 			scatterModeTimer1 = 7;
 			scatterModeTimer2 = 7;
 			scatterModeTimer3 = 5;
@@ -143,7 +165,6 @@ public class Ghost : MonoBehaviour {
 			normalMoveSpeed = 6.9f;
 			frightenedSpeed = 3.9f;
 			consumedMoveSpeed = 18f;
-
 
 		} else if (level == 3) {
 
@@ -266,7 +287,7 @@ public class Ghost : MonoBehaviour {
 	void Update () {
 
 		if (canMove) {
-			ModeUpdate2 ();
+			ModeUpdate ();
 			Move ();
 			ReleaseGhosts ();
 			CheckCollision ();
@@ -454,7 +475,7 @@ public class Ghost : MonoBehaviour {
 	}
 
 	// OLD - If statements
-	/* void ModeUpdate () {
+	void ModeUpdate () {
 
 		// If Ghost isn't Frightened
 		if (currentMode != Mode.Frightened) {
@@ -508,7 +529,41 @@ public class Ghost : MonoBehaviour {
 		} else if (currentMode == Mode.Frightened) {
 
 		}
-	} */
+
+		// If PacMan eat a Super Pellet, count down frightened Mode Timer. 
+		if (currentMode == Mode.Frightened) {
+			frightenedModeTimer += Time.deltaTime;
+
+			// When Frightened Mode is over, change back to normal mode. 
+			if (frightenedModeTimer >= frightenedModeDuration) {
+
+				bgAudio.clip = GameObject.Find("Game").transform.GetComponent<GameBoard> ().bgAudioNormal;
+				bgAudio.Play ();
+				
+				frightenedModeTimer = 0;
+				ChangeMode(previousMode);
+
+			}
+
+			// If 7 seconds has elapsed, Start Blinking Animation
+			if (frightenedModeTimer >= startBlinkingAt) {
+				blinkTimer += Time.deltaTime;
+				if (blinkTimer >= 0.1f) {
+					blinkTimer = 0f;
+
+					// Switch between White and Blue animation for Scared Ghosts.
+					if (frightenedModeIsWhite) {
+						transform.GetComponent<Animator> ().runtimeAnimatorController = ghostFrightened;
+						frightenedModeIsWhite = false;
+					} else {
+						transform.GetComponent<Animator> ().runtimeAnimatorController = ghostWhite;
+						frightenedModeIsWhite = true;
+					}
+				}
+			}
+
+		} 
+	}
 	
 	void ChangeMode (Mode m) {
 

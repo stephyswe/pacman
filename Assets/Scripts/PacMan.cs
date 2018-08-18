@@ -54,9 +54,11 @@ public class PacMan : MonoBehaviour {
 	}
 
 	// Difficulty changes by 1 per level
-	void SetDifficultyForLevel (int level) {
-		if (level == 2) {
-			
+	public void SetDifficultyForLevel (int level) {
+
+		if (level == 1) {
+			speed = 6;
+		} else if (level == 2) {		
 			speed = 7;
 		} else if (level == 3) {
 			speed = 8;
@@ -64,7 +66,7 @@ public class PacMan : MonoBehaviour {
 			speed = 9;
 		} else if (level == 5) {
 			speed = 10;
-		} 
+		} 	
 	}
 
 	// Pacman moves to start position, sprite is idle, and orientation and direction is left
@@ -236,36 +238,39 @@ public class PacMan : MonoBehaviour {
 			// If tile hasn't been consumed
 			if (tile != null) {
 
+				bool didConsume = false;
+
 				// If super pellet or pellet, increment score by 1 and set consumed pellets to true. 
-				if (!tile.didConsume && (tile.isPellet || tile.isSupperPellet)) {
-					o.GetComponent<SpriteRenderer> ().enabled = false;
-					tile.didConsume = true;
-
-					if (GameMenu.isOnePlayerGame) {
+				if (GameBoard.isPlayerOneUp) {
+					if (!tile.didConsumePlayerOne && (tile.isPellet || tile.isSuperPellet)) {
+						didConsume = true;
+						tile.didConsumePlayerOne = true;
 						GameBoard.playerOneScore += 10;
-						GameObject.Find("Game").transform.GetComponent<GameBoard> ().playerOnePelletsConsumed++;
-					} else {
-						if (GameBoard.isPlayerOneUp) {
-							GameBoard.playerOneScore += 10;
-							GameObject.Find("Game").transform.GetComponent<GameBoard> ().playerOnePelletsConsumed++;
-						} else {
-							GameBoard.playerTwoScore += 10;
-							GameObject.Find("Game").transform.GetComponent<GameBoard> ().playerTwoPelletsConsumed++;
-						}
-
+						GameMenu.playerOnePelletsConsumed++;
 					}
+				} else {
+					if (!tile.didConsumePlayerTwo && (tile.isPellet || tile.isSuperPellet)) {
+						didConsume = true;
+						tile.didConsumePlayerTwo = true;
+						GameBoard.playerTwoScore += 10;
+						GameMenu.playerTwoPelletsConsumed++;
+					}
+				}
 
+				// Disable SpriteRenderer, play chomp sound, if its a super pellet - make all ghosts frightened 
+				if (didConsume) {
+					o.GetComponent<SpriteRenderer> ().enabled = false;
 					PlayChompSound ();
 
-					if (tile.isSupperPellet) {
-						GameObject[] ghosts = GameObject.FindGameObjectsWithTag ("Ghost");
+					if (tile.isSuperPellet) {
+						GameObject[] ghosts = GameObject.FindGameObjectsWithTag("Ghost");
 						foreach (GameObject go in ghosts)
 						{
 							go.GetComponent<Ghost> ().StartFrightenedMode ();
 						}
 					}
 				}
-			} 
+			}
 		}
 	}
 

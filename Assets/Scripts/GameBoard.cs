@@ -15,14 +15,10 @@ public class GameBoard : MonoBehaviour {
 	public static int playerOneLevel = 1;
 	public static int playerTwoLevel = 1;
 
-	public int playerOnePelletsConsumed = 0;
-	public int playerTwoPelletsConsumed = 0;
-
 	public int totalPellets = 0;
 	public int score = 0;
 	public static int playerOneScore = 0;
 	public static int playerTwoScore = 0;
-	public int pacManLives = 3;
 
 	public static bool isPlayerOneUp = true;
 	public bool shouldBlink = false;
@@ -74,7 +70,7 @@ public class GameBoard : MonoBehaviour {
 				if (o.GetComponent<Tile> () != null ) {
 
 					// If Object is (Super) Pellet - Increase totalPellets by 1. 
-					if (o.GetComponent<Tile> ().isPellet || o.GetComponent<Tile> ().isSupperPellet) {
+					if (o.GetComponent<Tile> ().isPellet || o.GetComponent<Tile> ().isSuperPellet) {
 						totalPellets++;
 					}
 				}
@@ -109,31 +105,47 @@ public class GameBoard : MonoBehaviour {
 		playerOneScoreText.text = playerOneScore.ToString ();
 		playerTwoScoreText.text = playerTwoScore.ToString ();
 
-		if (pacManLives == 3) {
+		if (isPlayerOneUp) {
+			if (GameMenu.livesPlayerOne == 3) {
 			playerLives3.enabled = true;
 			playerLives2.enabled = true;
 
-		} else if (pacManLives == 2) {
-			playerLives3.enabled = false;
+			} else if (GameMenu.livesPlayerOne == 2) {
+				playerLives3.enabled = false;
+				playerLives2.enabled = true;
+
+
+			} else if (GameMenu.livesPlayerOne == 1) {
+				playerLives3.enabled = false;
+				playerLives2.enabled = false;
+			}
+		} else {
+			if (GameMenu.livesPlayerTwo == 3) {
+			playerLives3.enabled = true;
 			playerLives2.enabled = true;
 
+			} else if (GameMenu.livesPlayerTwo == 2) {
+				playerLives3.enabled = false;
+				playerLives2.enabled = true;
 
-		} else if (pacManLives == 1) {
-			playerLives3.enabled = false;
-			playerLives2.enabled = false;
+
+			} else if (GameMenu.livesPlayerTwo == 1) {
+				playerLives3.enabled = false;
+				playerLives2.enabled = false;
+			}
 		}
 	}
 
 	void CheckPelletsConsumed () {
 		if (isPlayerOneUp) {
 			//- Player one is playing
-			if (totalPellets == playerOnePelletsConsumed) {
+			if (totalPellets == GameMenu.playerOnePelletsConsumed) {
 				
 				PlayerWin(1);
 			}
 		} else {
 			//- Player two is playing
-			if (totalPellets == playerTwoPelletsConsumed) {
+			if (totalPellets == GameMenu.playerTwoPelletsConsumed) {
 				
 				PlayerWin(2);	
 			}
@@ -147,15 +159,15 @@ public class GameBoard : MonoBehaviour {
 			if (!didIncrementLevel) {
 				didIncrementLevel = true;
 				playerOneLevel++;
+				StartCoroutine (ProcessWin (2));
 			}
 		} else {
 			if (!didIncrementLevel) {
 				didIncrementLevel = true;
 				playerTwoLevel++;
+				StartCoroutine (ProcessWin (2));
 			}	
-		}
-
-		StartCoroutine (ProcessWin (2));
+		}	
 	}
 
 	// stop animation for ghosts and pacman, stop sound, goto BlinkBoard after 2 seconds
@@ -199,8 +211,39 @@ public class GameBoard : MonoBehaviour {
 	}
 
 	private void StartNextLevel () {
-		SceneManager.LoadScene("Level1");
+		StopAllCoroutines ();
 
+		if (isPlayerOneUp) {
+			ResetPelletsForPlayer (1);
+			GameMenu.playerOnePelletsConsumed = 0;
+
+		} else {
+			ResetPelletsForPlayer (2);
+			GameMenu.playerTwoPelletsConsumed = 0;
+
+		}
+
+		GameObject.Find ("Maze").transform.GetComponent<SpriteRenderer> ().sprite = mazeBlue;
+
+		didIncrementLevel = false;
+
+		StartCoroutine (ProcessStartNextLevel (1));
+	}
+
+	IEnumerator ProcessStartNextLevel (float delay) {
+		playerText.transform.GetComponent<Text> ().enabled = true;
+		readyText.transform.GetComponent<Text> ().enabled = true;
+
+		if (isPlayerOneUp)
+			StartCoroutine (StartBlinking (playerOneUp));
+		else
+			StartCoroutine (StartBlinking (playerTwoUp));
+
+		RedrawBoard ();
+
+		yield return new WaitForSeconds (delay);
+
+		StartCoroutine (ProcessRestartShowObjects (1));
 	}
 
 	private void CheckShouldBlink () {
@@ -434,21 +477,69 @@ public class GameBoard : MonoBehaviour {
 	// (1S): lose one life, player text / ready text is visible
 	// pacman is invisible, stops audio and call IE - ProcessRestartShowObjects.  
 	IEnumerator ProcessRestart (float delay) {
-		pacManLives -= 1;
 
-		if (pacManLives == 0) {
+		if (isPlayerOneUp)
+			GameMenu.livesPlayerOne -= 1;
+		else
+			GameMenu.livesPlayerTwo -= 1;
+
+		// If Both Players life is Zero, start Gameover Scene. 
+
+		if (GameMenu.livesPlayerOne == 0 && GameMenu.livesPlayerTwo == 0) {
 			playerText.transform.GetComponent<Text> ().enabled = true;
 			readyText.transform.GetComponent<Text> ().text ="GAME OVER";
 			readyText.transform.GetComponent<Text> ().color = Color.red;
-
 			readyText.transform.GetComponent<Text> ().enabled = true;
 
 			GameObject pacMan = GameObject.Find ("PacMan");
 			pacMan.transform.GetComponent<SpriteRenderer> ().enabled = false;
+			transform.GetComponent<AudioSource> ().Stop ();
+			StartCoroutine (ProcessGameOver (2));
 
+		// If either player has zero life
+		} else if (GameMenu.livesPlayerOne == 0 || GameMenu.livesPlayerTwo == 0) {
+
+			// If player one has zero life
+			if (GameMenu.livesPlayerOne == 0) {
+				playerText.transform.GetComponent<Text> ().text = "PLAYER 1";
+
+			// If player two has zero life
+			} else if (GameMenu.livesPlayerTwo == 0) {
+				playerText.transform.GetComponent<Text> ().text = "PLAYER 2";
+			}
+
+			readyText.transform.GetComponent<Text> ().text ="GAME OVER";
+			readyText.transform.GetComponent<Text> ().color = Color.red;
+			readyText.transform.GetComponent<Text> ().enabled = true;
+			playerText.transform.GetComponent<Text> ().enabled = true;
+
+			GameObject pacMan = GameObject.Find ("PacMan");
+			pacMan.transform.GetComponent<SpriteRenderer> ().enabled = false;
 			transform.GetComponent<AudioSource> ().Stop ();
 
-			StartCoroutine (ProcessGameOver (2));
+			yield return new WaitForSeconds (delay);
+
+			if (!GameMenu.isOnePlayerGame)
+				isPlayerOneUp = !isPlayerOneUp;
+
+			if (isPlayerOneUp)
+				StartCoroutine (StartBlinking (playerOneUp));
+			else
+				StartCoroutine (StartBlinking (playerTwoUp));
+
+			RedrawBoard ();
+
+			if (isPlayerOneUp)
+				playerText.transform.GetComponent<Text> ().text = "PLAYER 1";
+			else 
+				playerText.transform.GetComponent<Text> ().text = "PLAYER 2";
+
+			readyText.transform.GetComponent<Text> ().text = "READY";
+			readyText.transform.GetComponent<Text> ().color = new Color (240f / 255f, 207f / 255f, 101f / 255f);
+
+			yield return new WaitForSeconds (delay);
+
+			StartCoroutine (ProcessRestartShowObjects (2));			
 
 		} else {
 			playerText.transform.GetComponent<Text> ().enabled = true;
@@ -459,8 +550,22 @@ public class GameBoard : MonoBehaviour {
 
 			transform.GetComponent<AudioSource> ().Stop ();
 
-			yield return new WaitForSeconds (delay);
+			if (!GameMenu.isOnePlayerGame)
+				isPlayerOneUp = !isPlayerOneUp;
 
+			if (isPlayerOneUp)
+				StartCoroutine (StartBlinking (playerOneUp));
+			else
+				StartCoroutine (StartBlinking (playerTwoUp));
+
+			if (isPlayerOneUp) 
+				playerText.transform.GetComponent<Text> ().text = "PLAYER 1";
+			else
+				playerText.transform.GetComponent<Text> ().text = "PLAYER 2";
+
+			RedrawBoard ();
+
+			yield return new WaitForSeconds (delay);
 			StartCoroutine (ProcessRestartShowObjects (1));
 		}
 	}
@@ -479,6 +584,7 @@ public class GameBoard : MonoBehaviour {
 		foreach (GameObject ghost in o)
 		{
 			ghost.transform.GetComponent<SpriteRenderer> ().enabled = true;
+			ghost.transform.GetComponent<Animator> ().enabled = true;
 			ghost.transform.GetComponent<Ghost> ().MoveToStartingPosition ();
 
 		}
@@ -498,6 +604,21 @@ public class GameBoard : MonoBehaviour {
 	// Use ghost restart method, play background music, disable didstartdeath. 
 	public void Restart () {
 
+		int playerLevel = 0;
+
+		if (isPlayerOneUp)
+			playerLevel = playerOneLevel;
+		else
+			playerLevel = playerTwoLevel;
+
+		GameObject.Find ("PacMan").GetComponent<PacMan> ().SetDifficultyForLevel (playerLevel);
+
+		GameObject [] obj = GameObject.FindGameObjectsWithTag ("Ghost");
+		foreach (GameObject ghost in obj)
+		{
+			ghost.transform.GetComponent<Ghost> ().SetDifficultyForLevel (playerLevel);
+		}
+
 		readyText.transform.GetComponent<Text> ().enabled = false;
 
 		GameObject pacMan = GameObject.Find ("PacMan");
@@ -513,4 +634,60 @@ public class GameBoard : MonoBehaviour {
 
 		didStartDeath = false;
 	}
+
+	// For next Level, instead of Reload Scene - Set Objects 
+	void ResetPelletsForPlayer (int playerNum) {
+
+		Object[] objects = GameObject.FindObjectsOfType (typeof(GameObject));
+
+		foreach (GameObject o in objects)
+		{
+			if (o.GetComponent<Tile> () != null) {
+				if (o.GetComponent<Tile> ().isPellet || o.GetComponent<Tile> ().isSuperPellet) {
+					if (playerNum == 1) {
+						o.GetComponent<Tile> ().didConsumePlayerOne = false;
+					} else {
+						o.GetComponent<Tile> ().didConsumePlayerTwo = false;
+					}
+				}
+			}
+		}
+	}
+
+	//
+	void RedrawBoard () {
+
+		// Grabbing all objects in the Scene
+		Object[] objects = GameObject.FindObjectsOfType (typeof(GameObject));
+
+		// Iterating over all objects
+		foreach (GameObject o in objects)
+		{
+			// If It got a Tile Component
+			if (o.GetComponent<Tile> () != null) {
+				// We check if its a Pellet or Super Pellet
+				if (o.GetComponent<Tile> ().isPellet || o.GetComponent<Tile> ().isSuperPellet) {
+
+					// Then, we check if player one or two is playing 
+					if (isPlayerOneUp) {
+
+						// If current tile was consumed by player one dont show it up display
+						if (o.GetComponent<Tile> ().didConsumePlayerOne)
+							o.GetComponent<SpriteRenderer> ().enabled = false;
+						else
+							o.GetComponent<SpriteRenderer> ().enabled = true;
+
+					 } else {
+						 if (o.GetComponent<Tile> ().didConsumePlayerTwo)
+							o.GetComponent<SpriteRenderer> ().enabled = false;
+						else
+							o.GetComponent<SpriteRenderer> ().enabled = true;
+					 }
+				 }
+			 }
+		}
+
+	}
+
+
 }	

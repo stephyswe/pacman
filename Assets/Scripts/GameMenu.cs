@@ -9,6 +9,12 @@ public class GameMenu : MonoBehaviour {
 	// Static are called with the type name. No instance is required—this makes them slightly faster. Static methods can be public or private.
 	public static bool isOnePlayerGame = true;
 
+	public static int livesPlayerOne;
+	public static int livesPlayerTwo;
+
+	public static int playerOnePelletsConsumed = 0;
+	public static int playerTwoPelletsConsumed = 0;
+
 	public Text playerText1;
 	public Text playerText2;
 	public Text playerSelector;
@@ -21,18 +27,23 @@ public class GameMenu : MonoBehaviour {
 				isOnePlayerGame = true;
 
 				// Moves playerSelector to Player 1
-				playerSelector.transform.localPosition = new Vector3 (playerSelector.transform.localPosition.x,
-											 	playerText1.transform.localPosition.y, playerSelector.transform.localPosition.z);
+				playerSelector.transform.localPosition = new Vector3 (playerSelector.transform.localPosition.x, playerText1.transform.localPosition.y, playerSelector.transform.localPosition.z);
 			}
 		} else if (Input.GetKeyUp (KeyCode.DownArrow)) {
 			if (isOnePlayerGame) {
 				isOnePlayerGame = false;
 
 				// Moves playerSelector to Player 2
-				playerSelector.transform.localPosition = new Vector3 (playerSelector.transform.localPosition.x,
-				 								playerText2.transform.localPosition.y, playerSelector.transform.localPosition.z);
+				playerSelector.transform.localPosition = new Vector3 (playerSelector.transform.localPosition.x, playerText2.transform.localPosition.y, playerSelector.transform.localPosition.z);
 			}
 		} else if (Input.GetKeyUp (KeyCode.Return)) {
+			livesPlayerOne = 3;
+			livesPlayerTwo = 3;
+
+			if (isOnePlayerGame) {
+				livesPlayerTwo = 0;
+			}
+
 			SceneManager.LoadScene("Level1");
 		}
 		
