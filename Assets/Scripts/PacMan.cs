@@ -253,6 +253,10 @@ public class PacMan : MonoBehaviour {
 							
 						GameMenu.playerOnePelletsConsumed++;
 					}
+
+					if (tile.isBonusItem)
+						ConsumedBonusItem (1, tile);
+
 				} else {
 					if (!tile.didConsumePlayerTwo && (tile.isPellet || tile.isSuperPellet)) {
 						didConsume = true;
@@ -265,6 +269,9 @@ public class PacMan : MonoBehaviour {
 
 						GameMenu.playerTwoPelletsConsumed++;
 					}
+
+					if (tile.isBonusItem)
+						ConsumedBonusItem (2, tile);
 				}
 
 				// Disable SpriteRenderer, play chomp sound, if its a super pellet - make all ghosts frightened 
@@ -282,6 +289,18 @@ public class PacMan : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	void ConsumedBonusItem (int playerNum, Tile bonusItem) {
+		if (playerNum == 1) {
+			GameBoard.playerOneScore += bonusItem.pointValue;
+
+		} else {
+			GameBoard.playerTwoScore += bonusItem.pointValue;
+
+		}
+		GameObject.Find("Game").transform.GetComponent<GameBoard> ().StartConsumedBonusItem (bonusItem.gameObject, bonusItem.pointValue); 
+
 	}
 
 	// Checks if Pacman can CanMove, and set his position to neighbor node
