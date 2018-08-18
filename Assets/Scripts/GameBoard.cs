@@ -51,6 +51,8 @@ public class GameBoard : MonoBehaviour {
 
 	public GameObject[,] board = new GameObject[boardWidth, boardHeight];
 
+	public Image[] levelImages;
+
 	private bool didIncrementLevel = false;
 
 	// Use this for initialization
@@ -107,7 +109,11 @@ public class GameBoard : MonoBehaviour {
 		playerOneScoreText.text = playerOneScore.ToString ();
 		playerTwoScoreText.text = playerTwoScore.ToString ();
 
+		int currentLevel;
+
 		if (isPlayerOneUp) {
+			currentLevel = playerOneLevel;
+
 			if (GameMenu.livesPlayerOne == 3) {
 			playerLives3.enabled = true;
 			playerLives2.enabled = true;
@@ -122,6 +128,8 @@ public class GameBoard : MonoBehaviour {
 				playerLives2.enabled = false;
 			}
 		} else {
+			currentLevel = playerTwoLevel;
+
 			if (GameMenu.livesPlayerTwo == 3) {
 			playerLives3.enabled = true;
 			playerLives2.enabled = true;
@@ -134,6 +142,20 @@ public class GameBoard : MonoBehaviour {
 			} else if (GameMenu.livesPlayerTwo == 1) {
 				playerLives3.enabled = false;
 				playerLives2.enabled = false;
+			}
+		}
+
+		for (int i = 0; i < levelImages.Length; i++)
+		{
+			Image li = levelImages [i];
+			li.enabled = false;
+		}
+
+		for (int i = 1; i < levelImages.Length + 1; i++)
+		{
+			if (currentLevel >= i) {
+				Image li = levelImages[i-1];
+				li.enabled = true;
 			}
 		}
 	}
