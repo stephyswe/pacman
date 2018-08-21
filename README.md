@@ -1,11 +1,10 @@
 # Unity - Pacman @ playable - https://stephyswe.itch.io/pacman
 > Eat pellets and Avoid Ghosts! Made from Weekly Coder tutorial on: https://www.youtube.com/watch?v=tjxKxZsofdk
 
-[![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Downloads Stats][npm-downloads]][npm-url]
 
-![](header.jpg)
+![](header.png)
 
 ## Installation
 
