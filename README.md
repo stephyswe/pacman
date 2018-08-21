@@ -5,29 +5,25 @@
 [![Build Status][travis-image]][travis-url]
 [![Downloads Stats][npm-downloads]][npm-url]
 
-![](header.png)
+![](header.jpg)
 
 ## Installation
 
 OS X & Linux:
 
 ```sh
-npm install
+Download this Github.
+Download Unity Hub @ https://unity3d.com/get-unity/download 
+Open Unity Hub - click 'Open' and select the github folder.
 ```
 
 Windows:
 
 ```sh
-npm install
+Download this Github.
+Download Unity Hub @ https://unity3d.com/get-unity/download 
+Open Unity Hub - click 'Open' and select the github folder.
 ```
-
-## Contributing
-
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
 
 <!-- Markdown link & img dfn's -->
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
