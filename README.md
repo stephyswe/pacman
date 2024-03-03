@@ -10,7 +10,7 @@
 
 Windows / OSX & Linux:
 ```sh
-Download repo. Download Unity Hub @ https://unity3d.com/get-unity/download. Open Unity Hub - click 'Open' and select the github folder.
+Download repo. Download Unity Hub @ https://unity.com/download. Open Unity Hub - click 'Open' and select the github folder.
 ```
 
 <!-- Markdown link & img dfn's -->
